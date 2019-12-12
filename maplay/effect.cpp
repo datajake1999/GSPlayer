@@ -259,7 +259,7 @@ void CBassBoost::Open(int nChannels, int nSampleRate)
 	double omega = 2 * 3.141592653589 * BASSBOOST_FREQUENCY / nSampleRate;
 	double sn = sin(omega);
 	double cs = cos(omega);
-	double ax = exp(log(10) * (double)m_nLevel * 0.35 / 40);
+	double ax = exp(log((double)10) * (double)m_nLevel * 0.35 / 40);
 	double shape = 7.0;
 	double beta = sqrt((ax * ax + 1) / shape - (pow((ax - 1), 2)));
 	double b0 = ax * ((ax + 1) - (ax - 1) * cs + beta * sn);

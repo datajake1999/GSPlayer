@@ -1,0 +1,40 @@
+[GSPlayer Skin]
+Version=2
+Background=back.bmp
+Number=number.bmp
+ButtonNormal=button_normal.bmp
+ButtonPush=button_push.bmp
+Status=status.bmp
+PlayOption=playopt.bmp
+Disp=0
+DispColor=169,223,4
+PeekColorL=168,181,206
+PeekColorR=168,181,206
+InfoColor=163,175,197
+TitleColor=234,237,242
+SeekColor=132,130,255
+VolumeSlider=vol_slider.bmp
+VolumeTrack=vol_track.bmp
+
+[GSPlayer Skin PocketPC]
+Version=2
+Background=back_full.bmp
+Number=number.bmp
+ButtonNormal=button_normal.bmp
+ButtonPush=button_push.bmp
+Status=status.bmp
+PlayOption=playopt.bmp
+Disp=0
+DispColor=169,223,4
+PeekColorL=168,181,206
+PeekColorR=168,181,206
+InfoColor=163,175,197
+TitleColor=234,237,242
+SeekColor=132,130,255
+Playlist=1
+PlaylistBackColor=28,61,125
+PlaylistTextColor=193,205,227
+VolumeSlider=vol_slider.bmp
+VolumeTrack=vol_track.bmp
+
+[Created by Mattie Taco]

@@ -1,0 +1,9 @@
+[GSPlayer Skin]
+Version=2
+Background=back.bmp
+
+[GSPlayer Skin PocketPC]
+Version=2
+Background240x320=back_full.bmp
+Background320x240=back_full_land.bmp
+Background240x240=back_full_land.bmp

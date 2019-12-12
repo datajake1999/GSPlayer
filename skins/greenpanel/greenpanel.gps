@@ -1,0 +1,41 @@
+[GSPlayer Skin]
+Version=2
+Background=back.bmp
+Number=number.bmp
+ButtonNormal=button_normal.bmp
+ButtonPush=button_push.bmp
+Status=status.bmp
+PlayOption=playopt.bmp
+Disp=0
+DispColor=169,223,4
+PeekColorL=139,174,14
+PeekColorR=139,174,14
+InfoColor=0, 0, 0
+TitleColor=0, 0, 0
+SeekColor=139,174,14
+VolumeSlider=vol_slider.bmp
+VolumeTrack=vol_track.bmp
+
+[GSPlayer Skin PocketPC]
+Version=2
+Background240x320=back_full.bmp
+Background320x240=back_full_land.bmp
+Background240x240=back_full_sq.bmp
+Background=back_full.bmp
+Number=number.bmp
+ButtonNormal=button_normal.bmp
+ButtonPush=button_push.bmp
+Status=status.bmp
+PlayOption=playopt.bmp
+Disp=0
+DispColor=169,223,4
+PeekColorL=139,174,14
+PeekColorR=139,174,14
+InfoColor=0, 0, 0
+TitleColor=0, 0, 0
+SeekColor=139,174,14
+Playlist=1
+PlaylistBackColor=169,223,4
+PlaylistTextColor=0, 0, 0
+VolumeSlider=vol_slider.bmp
+VolumeTrack=vol_track.bmp

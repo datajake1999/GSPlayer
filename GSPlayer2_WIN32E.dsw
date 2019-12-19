@@ -15,7 +15,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "libmad"=.\libmad\libmad.dsp - Package Owner=<4>
+Project: "libmad"=.\libmad\libmad_win32.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -27,7 +27,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "libovd"=.\libovd\libovd.dsp - Package Owner=<4>
+Project: "libovd"=.\libovd\libovd_win32.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -39,7 +39,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "maplay"=.\maplay\maplay.dsp - Package Owner=<4>
+Project: "maplay"=.\maplay\maplay_win32.dsp - Package Owner=<4>
 
 Package=<5>
 {{{

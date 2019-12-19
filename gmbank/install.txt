@@ -1,0 +1,13 @@
+GM instrument set
+for GSPlayer MIDI Plug-in (and GSPlayer for MIDI)
+
+How to install
+1) extract 'gm' folder and 'gm.cfg' file.
+2) copy 'gm' folder 'gm.cfg' file to your PocketPC.
+3) execute GSPlayer.
+4) show Options dialog and select Plug-ins tab.
+5) select "Greensoftware MIDI Plug-in" and push "configure..." button.
+6) push "..." button
+7) select 'gm.cfg'
+8) close "configure" dialog
+9) enjoy!!

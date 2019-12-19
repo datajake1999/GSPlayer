@@ -21,7 +21,8 @@ Source: "bin\jpn\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"
 Source: "gspmidi\gspmidi\ReleaseUnicode\gspmidi.dll"; DestDir: "{app}"
 Source: "gspmp4\gspmp4\gspmp4\Release\gspmp4.dll"; DestDir: "{app}"
 Source: "gspwma\gspwma\Release\gspwma.dll"; DestDir: "{app}"
-Source: "gmbank\*"; DestDir: "{app}"; Flags: recursesubdirs
+Source: "gmbank\gm.cfg"; DestDir: "{app}"
+Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"
 Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs
 
 [Registry]

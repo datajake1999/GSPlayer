@@ -18,6 +18,7 @@ Name: ja; MessagesFile: "compiler:Languages\Japanese.isl"
 [Files]
 Source: "bin\eng\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"; DestName: "GSPlayer2e.exe"
 Source: "bin\jpn\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"
+Source: "gspflac\gspflac\ReleaseUnicode\gspflac.dll"; DestDir: "{app}"
 Source: "gspmidi\gspmidi\ReleaseUnicode\gspmidi.dll"; DestDir: "{app}"
 Source: "gspmp4\gspmp4\gspmp4\Release\gspmp4.dll"; DestDir: "{app}"
 Source: "gspwma\gspwma\Release\gspwma.dll"; DestDir: "{app}"

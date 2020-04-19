@@ -23,6 +23,8 @@ Source: "gspmidi\gspmidi\ReleaseUnicode\gspmidi.dll"; DestDir: "{app}"
 Source: "gspmp4\gspmp4\gspmp4\Release\gspmp4.dll"; DestDir: "{app}"
 Source: "gspwma\gspwma\Release\gspwma.dll"; DestDir: "{app}"
 Source: "gstta\ReleaseUnicode\gstta.dll"; DestDir: "{app}"
+Source: "ModPlugin\WIN32\BASSMOD.dll"; DestDir: "{app}"
+Source: "ModPlugin\WIN32\ReleaseUnicode\ModPlugin.dll"; DestDir: "{app}"
 Source: "gmbank\gm.cfg"; DestDir: "{app}"
 Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"
 Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs

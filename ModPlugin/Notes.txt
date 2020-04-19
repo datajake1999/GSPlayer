@@ -1,0 +1,61 @@
+Dialogue Itself: IDD_CONFIG
+
+Sampling Rate: IDC_SAMPLERATE; int M_SampleRate = 44100;
+#define REG_NAME_SAMPLERATE		_T("SampleRate")
+ComboBox Entries:
+48000
+44100
+32000
+22050
+16000
+11025
+
+16 Bit Sound : IDC_16BIT; int M_BitsPerSample = 16;
+#define REG_NAME_BITS			_T("Bits")
+
+Stereo Sound : IDC_STEREO; int M_Channels = 2;
+#define REG_NAME_STEREO			_T("Stereo")
+
+Interpolation: IDC_INTERPOLATED; BOOL M_NonInter = FALSE; //Non-Interpolated Mixing (Note, Checkbox is backwards!)
+#define REG_NAME_NONINTERP		_T("NonInterpolated")
+
+//Tuning Parameters:
+Ramping : IDC_RAMPING; int M_Ramp = 2; //Ramping : 0 - off, 1 - normal, 2 - sensitive
+#define REG_NAME_RAMPING		_T("Voices")
+Combobox Entries:
+No Ramping
+Normal Ramping
+Sensitive Ramping
+
+Surround Sound: IDC_SURROUND; int M_Surround = 2; //Surround Sound.  0 - Off, 1 - Mode 1, 2 = Mode 2
+#define REG_NAME_SURROUND		_T("SurroundMode")
+ComboBox Entries:
+Off
+Mode 1
+Mode 2
+
+Mod Playback: IDC_MODMODE; int M_ModMode = 0; //Mod Playback Mode.  0 - Normal, 1 - ProTracker 1, 2 - FastTracker 2
+#define REG_NAME_MODMODE		_T("ModMode")
+ComboBox Entries:
+Normal
+ProTracker Mode
+FastTracker 2 Mode
+
+Looping: IDC_LOOP; BOOL M_Loop = FALSE;
+#define REG_NAME_LOOP			_T("Loop")
+
+Prevent Jump Backs: IDC_JUMPBACK; BOOL M_StopBack = TRUE; //Stop the music when a backward jump effect is played. This stops musics that never 
+						 //reach the end from going into endless loops. Some MOD musics are designed to jump all 
+						 //over the place, so this flag would cause those to be stopped prematurely. If this flag is 
+						 //used together with the BASS_MUSIC_LOOP flag, then the music would not be stopped but any 
+						 //BASS_SYNC_END sync would be called.  
+#define REG_NAME_JUMPBACK		_T("StopBack")
+
+Stop Notes on Position Reset: IDC_POSRESET; BOOL M_PosReset = TRUE; //Stop all notes when moving position (using BASSMOD_MusicSetPosition or BASSMOD_MusicPlayEx).  
+#define REG_NAME_POSRESET		_T("PosReset")
+
+Cancel Button : IDC_CANCEL
+
+Derived, probably:						 
+BOOL M_CalculateLength = TRUE;
+

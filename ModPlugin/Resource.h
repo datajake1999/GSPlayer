@@ -15,7 +15,6 @@
 #define IDC_JUMPBACK                    1007
 #define IDC_POSRESET                    1008
 #define IDC_INTERPOLATED                1009
-#define IDC_CANCEL                      1011
 #define IDC_TITLE                       1012
 
 // Next default values for new objects

@@ -226,7 +226,7 @@ BOOL CALLBACK ConfigDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lP
 				case IDOK:
 					//OK Button runs the actual OK procedure
 					return ConfigDialogOnOK(hwndDlg);
-				case IDC_CANCEL:
+				case IDCANCEL:
 					//Cancel button does essentially nothing
 					EndDialog(hwndDlg, LOWORD(wParam));
 					return TRUE;

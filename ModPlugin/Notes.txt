@@ -54,7 +54,9 @@ Prevent Jump Backs: IDC_JUMPBACK; BOOL M_StopBack = TRUE; //Stop the music when 
 Stop Notes on Position Reset: IDC_POSRESET; BOOL M_PosReset = TRUE; //Stop all notes when moving position (using BASSMOD_MusicSetPosition or BASSMOD_MusicPlayEx).  
 #define REG_NAME_POSRESET		_T("PosReset")
 
-Cancel Button : IDC_CANCEL
+OK Button : IDOK
+
+Cancel Button : IDCANCEL
 
 Derived, probably:						 
 BOOL M_CalculateLength = TRUE;

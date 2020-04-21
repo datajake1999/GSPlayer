@@ -152,6 +152,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,109,78,10
     PUSHBUTTON      "OK",IDOK,65,2,44,11
     PUSHBUTTON      "Cancel",IDCANCEL,95,2,44,11
+    PUSHBUTTON      "About...",IDC_ABOUT,125,2,44,11
     LTEXT           "BASSMod Plugin Config",IDC_TITLE,5,3,74,9
     GROUPBOX        "Updated After Restarting GSPlayer",IDC_STATIC,3,15,132,
                     37

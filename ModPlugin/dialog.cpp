@@ -230,6 +230,13 @@ BOOL CALLBACK ConfigDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lP
 					//Cancel button does essentially nothing
 					EndDialog(hwndDlg, LOWORD(wParam));
 					return TRUE;
+				case IDC_ABOUT:
+				{
+					TCHAR sz[MAX_PATH];
+					LoadString(M_hInst, IDS_ABOUT, sz, MAX_PATH);
+					MessageBox(hwndDlg, sz, _T("About"), MB_OK | MB_ICONINFORMATION);
+					return TRUE;
+				}
 			}
 #ifdef _WIN32_WCE
 		case WM_PAINT:

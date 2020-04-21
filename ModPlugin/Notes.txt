@@ -58,6 +58,8 @@ OK Button : IDOK
 
 Cancel Button : IDCANCEL
 
+About... Button : IDC_ABOUT
+
 Derived, probably:						 
 BOOL M_CalculateLength = TRUE;
 

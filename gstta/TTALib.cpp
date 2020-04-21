@@ -71,11 +71,11 @@ TTALib::TTAEncoder::TTAEncoder(const char *filename,
 	long offset = 0;
 
 	if (!append)
-		hFile = CreateFileA (filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+		hFile = CreateFile ((TCHAR*)filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 	else
 	{
-		hFile = CreateFileA (filename, GENERIC_WRITE, 0, NULL, OPEN_ALWAYS,
+		hFile = CreateFile ((TCHAR*)filename, GENERIC_WRITE, 0, NULL, OPEN_ALWAYS,
 			FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 		offset = SetFilePointer (hFile, 0, NULL, FILE_END);
 	}
@@ -147,7 +147,7 @@ TTALib::TTADecoder::TTADecoder (const char *filename)
 	} __ATTRIBUTE_PACKED__ id3v2;
 	unsigned long result;
 
-	if ((hFile = CreateFileA (filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+	if ((hFile = CreateFile ((TCHAR*)filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
 		FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 		throw TTAException (OPEN_ERROR);
 
@@ -326,7 +326,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 	if ((hInFile = wav.Open (infile)) == INVALID_HANDLE_VALUE)
 		return wav.GetErrNo ();
 
-	if ((hOutFile = CreateFileA (outfile, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+	if ((hOutFile = CreateFile ((TCHAR*)outfile, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 	{
 		wav.Close ();
@@ -338,7 +338,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 	{
 		wav.Close ();
 		CloseHandle (hOutFile);
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return err;
 	}	
 
@@ -346,7 +346,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 
 	if (!wav.ReadHeaders ())
 	{
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return wav.GetErrNo ();
 	}
 
@@ -359,7 +359,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 		(wav.wave_hdr.BitsPerSample > MAX_BPS)) {
 		wav.Close ();
 		CloseHandle (hOutFile);
-		DeleteFileA (outfile);		
+		DeleteFile ((TCHAR*)outfile);		
 		return TTALib::FORMAT_ERROR;
 	}
 	
@@ -369,7 +369,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 	default: 
 		wav.Close ();
 		CloseHandle (hOutFile);
-		DeleteFileA (outfile);		
+		DeleteFile ((TCHAR*)outfile);		
 		return TTALib::FORMAT_ERROR;
 	}
 
@@ -377,7 +377,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 		(!is_float && wav.wave_hdr.BitsPerSample == MAX_BPS)) {
 		wav.Close ();
 		CloseHandle (hOutFile);
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return TTALib::FORMAT_ERROR;
 	}
 
@@ -420,7 +420,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 		wav.Close ();		
 		delete [] data;
 		CloseHandle (hOutFile);
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return ex.GetErrNo ();
 	}
 
@@ -428,7 +428,7 @@ TTALib::TTAError TTALib::Wav2TTA (const char *infile, const char *outfile,
 	{
 		CloseHandle (hOutFile);
 		wav.Close ();
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return TTALib::MEMORY_ERROR;
 	}
 
@@ -445,7 +445,7 @@ TTALib::TTAError TTALib::TTA2Wav (const char *infile, const char *outfile,
 	TTALib::TTAError err;
 	TTALib::WaveFile wav;
 
-	if ((hInFile = CreateFileA (infile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+	if ((hInFile = CreateFile ((TCHAR*)infile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
 				FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 		return TTALib::OPEN_ERROR;
 	
@@ -460,7 +460,7 @@ TTALib::TTAError TTALib::TTA2Wav (const char *infile, const char *outfile,
 	{
 		CloseHandle (hInFile);
 		wav.Close ();
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		return err;
 	}
 
@@ -501,7 +501,7 @@ TTALib::TTAError TTALib::TTA2Wav (const char *infile, const char *outfile,
 
 	catch (TTAException ex)
 	{
-		DeleteFileA (outfile);
+		DeleteFile ((TCHAR*)outfile);
 		CloseHandle (hInFile);
 		return ex.GetErrNo ();
 	}
@@ -519,7 +519,7 @@ TTALib::TTAError TTALib::TTATest (const char *infile,
 	TTAHeader ttahdr;
 	HANDLE hFile;
 
-	if ((hFile = CreateFileA (infile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+	if ((hFile = CreateFile ((TCHAR*)infile, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
 				FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 		return TTALib::OPEN_ERROR;
 

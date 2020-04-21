@@ -48,7 +48,7 @@ TTALib::WaveFile::~WaveFile ()
 HANDLE TTALib::WaveFile::Create (const char *filename)
 {
 	errNo = TTALib::TTA_NO_ERROR;
-	if ((fd = CreateFileA (filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+	if ((fd = CreateFile ((TCHAR*)filename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
 			FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 	{
 		errNo = TTALib::OPEN_ERROR;
@@ -60,7 +60,7 @@ HANDLE TTALib::WaveFile::Create (const char *filename)
 HANDLE TTALib::WaveFile::Open (const char *filename)
 {
 	errNo = TTALib::TTA_NO_ERROR;
-	if ((fd = CreateFileA (filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+	if ((fd = CreateFile ((TCHAR*)filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
 				FILE_ATTRIBUTE_NORMAL|FILE_FLAG_SEQUENTIAL_SCAN, NULL)) == INVALID_HANDLE_VALUE)
 		errNo = TTALib::OPEN_ERROR;
 	return fd;

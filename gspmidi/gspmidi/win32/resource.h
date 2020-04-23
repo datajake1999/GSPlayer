@@ -17,6 +17,7 @@
 #define IDC_CHECK_PAN                   1010
 #define IDC_CHECK_ANTIALIAS             1011
 #define IDC_CHECK_FREEINST              1012
+#define IDC_CHECK_FASTENV              1013
 #define IDC_ABOUT                       1014
 
 // Next default values for new objects

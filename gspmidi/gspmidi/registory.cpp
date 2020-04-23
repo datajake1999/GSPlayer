@@ -9,6 +9,7 @@ extern int g_nAmp;
 extern BOOL g_fAdjustPanning;
 extern BOOL g_fFreeInst;
 extern BOOL g_fAntialiasing;
+extern BOOL g_fFastEnv;
 
 #define REG_KEY_GSPMIDI			_T("Software\\GreenSoftware\\GSPlayer\\Plug-ins\\gspmidi")
 #define REG_NAME_CONFIGFILE		_T("ConfigFile")
@@ -20,6 +21,7 @@ extern BOOL g_fAntialiasing;
 #define REG_NAME_ADJUSTPAN		_T("AdjustPanning")
 #define REG_NAME_FREEINST		_T("FreeInst")
 #define REG_NAME_ANTIALIAS		_T("Antialiasing")
+#define REG_NAME_FASTENV		_T("FastEnvelopes")
 
 void ReadRegistory()
 {
@@ -40,6 +42,7 @@ void ReadRegistory()
 	RegQueryValueEx(hKey, REG_NAME_ADJUSTPAN, 0, &dwType, (LPBYTE)&g_fAdjustPanning, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_FREEINST, 0, &dwType, (LPBYTE)&g_fFreeInst, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_ANTIALIAS, 0, &dwType, (LPBYTE)&g_fAntialiasing, &dwSize);
+	RegQueryValueEx(hKey, REG_NAME_FASTENV, 0, &dwType, (LPBYTE)&g_fFastEnv, &dwSize);
 
 	dwSize = sizeof(g_szConfigFile);
 	RegQueryValueEx(hKey, REG_NAME_CONFIGFILE, 0, &dwType, (LPBYTE)&g_szConfigFile, &dwSize);
@@ -66,6 +69,7 @@ void WriteRegistory()
 	RegSetValueEx(hKey, REG_NAME_ADJUSTPAN, 0, REG_DWORD, (LPBYTE)&g_fAdjustPanning, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_FREEINST, 0, REG_DWORD, (LPBYTE)&g_fFreeInst, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_ANTIALIAS, 0, REG_DWORD, (LPBYTE)&g_fAntialiasing, sizeof(DWORD));
+	RegSetValueEx(hKey, REG_NAME_FASTENV, 0, REG_DWORD, (LPBYTE)&g_fFastEnv, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_CONFIGFILE, 0, REG_SZ, 
 				(LPBYTE)&g_szConfigFile, sizeof(TCHAR) * (_tcslen(g_szConfigFile) + 1));
 }

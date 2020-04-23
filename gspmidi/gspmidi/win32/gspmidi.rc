@@ -91,6 +91,8 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,130,90,105,10
     CONTROL         "&Free instruments afterwards",IDC_CHECK_FREEINST,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,105,115,10
+    CONTROL         "Fast En&velopes",IDC_CHECK_FASTENV,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,130,105,115,10
     DEFPUSHBUTTON   "OK",IDOK,130,125,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,190,125,50,14
     EDITTEXT        IDC_EDIT_VOICES,65,50,40,12,ES_AUTOHSCROLL | ES_NUMBER

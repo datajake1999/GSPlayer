@@ -30,6 +30,7 @@ extern "C" {
 	extern int32 amplification;
 	extern int adjust_panning_immediately;
 	extern int antialiasing_allowed;
+	extern int fast_decay;
 
 };
 
@@ -51,6 +52,7 @@ int g_nAmp = 80;
 BOOL g_fAdjustPanning = FALSE;
 BOOL g_fFreeInst = FALSE;
 BOOL g_fAntialiasing = FALSE;
+BOOL g_fFastEnv = TRUE;
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
@@ -165,6 +167,7 @@ void ResetConfig()
 	adjust_panning_immediately = g_fAdjustPanning;
 	free_instruments_afterwards = g_fFreeInst;
 	antialiasing_allowed = g_fAntialiasing;
+	fast_decay = g_fFastEnv;
 
 	_tcscpy(szPath, g_szConfigFile);
 	psz = _tcsrchr(szPath, '\\');

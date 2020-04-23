@@ -20,6 +20,7 @@ extern int g_nAmp;
 extern BOOL g_fAdjustPanning;
 extern BOOL g_fFreeInst;
 extern BOOL g_fAntialiasing;
+extern BOOL g_fFastEnv;
 
 const int s_nSampleRate[] = {8000, 11025, 16000, 22050, 32000, 44100, 48000, 0};
 
@@ -55,6 +56,9 @@ BOOL ConfigDialogOnInitDialog(HWND hwndDlg)
 
 	if (g_fAntialiasing)
 		SendMessage(GetDlgItem(hwndDlg, IDC_CHECK_ANTIALIAS), BM_SETCHECK, 1, 0);
+
+	if (g_fFastEnv)
+		SendMessage(GetDlgItem(hwndDlg, IDC_CHECK_FASTENV), BM_SETCHECK, 1, 0);
 
 	return TRUE;
 }
@@ -101,6 +105,11 @@ BOOL ConfigDialogOnOK(HWND hwndDlg)
 		g_fAntialiasing = TRUE;
 	else
 		g_fAntialiasing = FALSE;
+
+	if (SendMessage(GetDlgItem(hwndDlg, IDC_CHECK_FASTENV), BM_GETCHECK, 0, 0))
+		g_fFastEnv = TRUE;
+	else
+		g_fFastEnv = FALSE;
 
 	g_fUpdateConfig = TRUE;
 

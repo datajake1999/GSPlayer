@@ -145,7 +145,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,12,68,56,10
     CONTROL         "&Free instruments afterwards",IDC_CHECK_FREEINST,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,76,68,122,10
-    CONTROL         "Fast En&velopes",IDC_CHECK_FASTENV,"Button",
+    CONTROL         "Fast &Envelopes",IDC_CHECK_FASTENV,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,152,68,244,10
     PUSHBUTTON      "About...",IDC_ABOUT,77,82,50,14
     PUSHBUTTON      "OK",IDOK,137,82,50,14

@@ -83,7 +83,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 libcmtd.lib ../../lib/Debug/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/Release/libmad.lib ../../lib/Debug/libovd.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/Debug/GSPlayer2.exe" /pdbtype:sept
+# ADD LINK32 libcmtd.lib ../../lib/Debug/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/Debug/libmad.lib ../../lib/Debug/libovd.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/Debug/GSPlayer2.exe" /pdbtype:sept
 
 !ELSEIF  "$(CFG)" == "GSPlayer2e - Win32 ReleaseUnicode"
 
@@ -136,8 +136,8 @@ BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD BASE LINK32 libcmtd.lib ../../lib/Debug/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/Release/libmad.lib ../../lib/Debug/libovd.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/Debug/GSPlayer2.exe" /pdbtype:sept
-# ADD LINK32 libcmtd.lib ../../lib/DebugUnicode/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/ReleaseUnicode/libmad.lib ../../lib/DebugUnicode/libovd.lib /nologo /entry:"wWinMainCRTStartup" /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/DebugUnicode/GSPlayer2.exe" /pdbtype:sept
+# ADD BASE LINK32 libcmtd.lib ../../lib/Debug/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/Debug/libmad.lib ../../lib/Debug/libovd.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/Debug/GSPlayer2.exe" /pdbtype:sept
+# ADD LINK32 libcmtd.lib ../../lib/DebugUnicode/maplay.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib ws2_32.lib msacm32.lib ../../lib/DebugUnicode/libmad.lib ../../lib/DebugUnicode/libovd.lib /nologo /entry:"wWinMainCRTStartup" /subsystem:windows /debug /machine:I386 /nodefaultlib /out:"../../bin/eng/Win32/DebugUnicode/GSPlayer2.exe" /pdbtype:sept
 
 !ELSEIF  "$(CFG)" == "GSPlayer2e - Win32 Release64"
 

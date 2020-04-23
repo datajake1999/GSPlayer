@@ -185,7 +185,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/ALIGN:4096 /subsystem:$(CESubsystem)  "
-				AdditionalDependencies="commctrl.lib coredll.lib aygshell.lib winsock.lib ../../lib/ARMV4Rel/libmad.lib ../../lib/ARMV4Rel/libovd.lib ../../lib/ARMV4Dbg/maplay.lib"
+				AdditionalDependencies="commctrl.lib coredll.lib aygshell.lib winsock.lib ../../lib/ARMV4Dbg/libmad.lib ../../lib/ARMV4Dbg/libovd.lib ../../lib/ARMV4Dbg/maplay.lib"
 				OutputFile="$(PlatformName)\$(ConfigurationName)/GSPlayer2.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -602,7 +602,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/ALIGN:4096 /subsystem:$(CESubsystem)  "
-				AdditionalDependencies="commctrl.lib coredll.lib aygshell.lib winsock.lib ../../lib/ARMV4Rel/libmad.lib ../../lib/ARMV4Rel/libovd.lib ../../lib/ARMV4Dbg/maplay.lib"
+				AdditionalDependencies="commctrl.lib coredll.lib aygshell.lib winsock.lib ../../lib/ARMV4Dbg/libmad.lib ../../lib/ARMV4Dbg/libovd.lib ../../lib/ARMV4Dbg/maplay.lib"
 				OutputFile="$(PlatformName)\$(ConfigurationName)/GSPlayer2e.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"

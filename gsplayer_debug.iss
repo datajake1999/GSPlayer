@@ -18,16 +18,16 @@ Name: ja; MessagesFile: "compiler:Languages\Japanese.isl"
 [Files]
 Source: "bin\eng\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"; DestName: "GSPlayer2e.exe"
 Source: "bin\jpn\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"
-Source: "gspflac\gspflac\DebugUnicode\gspflac.dll"; DestDir: "{app}"
-Source: "gspmidi\gspmidi\DebugUnicode\gspmidi.dll"; DestDir: "{app}"
-Source: "gspmp4\gspmp4\gspmp4\Debug\gspmp4.dll"; DestDir: "{app}"
-Source: "gspwma\gspwma\Debug\gspwma.dll"; DestDir: "{app}"
-Source: "gstta\DebugUnicode\gstta.dll"; DestDir: "{app}"
-Source: "ModPlugin\WIN32\BASSMOD.dll"; DestDir: "{app}"
-Source: "ModPlugin\WIN32\DebugUnicode\ModPlugin.dll"; DestDir: "{app}"
-Source: "gmbank\gm.cfg"; DestDir: "{app}"
-Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"
-Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs
+Source: "gspflac\gspflac\DebugUnicode\gspflac.dll"; DestDir: "{app}"; Components: "flac"
+Source: "gspmidi\gspmidi\DebugUnicode\gspmidi.dll"; DestDir: "{app}"; Components: "midi"
+Source: "gspmp4\gspmp4\gspmp4\Debug\gspmp4.dll"; DestDir: "{app}"; Components: "mp4"
+Source: "gspwma\gspwma\Debug\gspwma.dll"; DestDir: "{app}"; Components: "wma"
+Source: "gstta\DebugUnicode\gstta.dll"; DestDir: "{app}"; Components: "tta"
+Source: "ModPlugin\WIN32\BASSMOD.dll"; DestDir: "{app}"; Components: "mod"
+Source: "ModPlugin\WIN32\DebugUnicode\ModPlugin.dll"; DestDir: "{app}"; Components: "mod"
+Source: "gmbank\gm.cfg"; DestDir: "{app}"; Components: "inst"
+Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"; Components: "inst"
+Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs; Components: "skins"
 
 [Registry]
 Root: HKCU; Subkey: "Software\GreenSoftware\GSPlayer\Plug-ins\gspmidi"; ValueName: "ConfigFile"; ValueType: String; ValueData: "{app}\gm.cfg"
@@ -43,4 +43,14 @@ Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: deskt
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
+
+[Components]
+Name: "flac"; Description: "FLAC Plugin"; Types: "full"
+Name: "midi"; Description: "MIDI Plugin"; Types: "full"
+Name: "mod"; Description: "MOD Plugin"; Types: "full"
+Name: "mp4"; Description: "MP4 Plugin"; Types: "full"
+Name: "tta"; Description: "TTA Plugin"; Types: "full"
+Name: "wma"; Description: "WMA Plugin"; Types: "full"
+Name: "skins"; Description: "Skins"; Types: "full"
+Name: "inst"; Description: "MIDI Instruments"; Types: "full"
 

@@ -30,14 +30,14 @@ Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"; Components: "inst"
 Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs; Components: "skins"
 
 [Registry]
-Root: HKCU; Subkey: "Software\GreenSoftware\GSPlayer\Plug-ins\gspmidi"; ValueName: "ConfigFile"; ValueType: String; ValueData: "{app}\gm.cfg"
+Root: HKCU; Subkey: "Software\GreenSoftware\GSPlayer\Plug-ins\gspmidi"; ValueName: "ConfigFile"; ValueType: String; ValueData: "{app}\gm.cfg"; Components: "inst"
 
 [Run]
 Filename: "{app}\GSPlayer2e.exe"; Description: "{cm:LaunchProgram,GSPlayer}"; Flags: nowait postinstall skipifsilent
 
 [Icons]
 Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
-Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"
+Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"
 Name: "{group}\{cm:UninstallProgram,GSPlayer}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: desktopicon
 

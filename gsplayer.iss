@@ -17,7 +17,7 @@ Name: ja; MessagesFile: "compiler:Languages\Japanese.isl"
 
 [Files]
 Source: "bin\eng\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"; DestName: "GSPlayer2e.exe"
-Source: "bin\jpn\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"
+Source: "bin\jpn\Win32\ReleaseUnicode\GSPlayer2.exe"; DestDir: "{app}"; Components: "japanese"
 Source: "gspflac\gspflac\ReleaseUnicode\gspflac.dll"; DestDir: "{app}"; Components: "flac"
 Source: "gspmidi\gspmidi\ReleaseUnicode\gspmidi.dll"; DestDir: "{app}"; Components: "midi"
 Source: "gspmp4\gspmp4\gspmp4\Release\gspmp4.dll"; DestDir: "{app}"; Components: "mp4"
@@ -45,6 +45,7 @@ Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: deskt
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 
 [Components]
+Name: "japanese"; Description: "GSPlayer (Japanese)"; Types: "full"
 Name: "flac"; Description: "FLAC Plugin"; Types: "full"
 Name: "midi"; Description: "MIDI Plugin"; Types: "full"
 Name: "mod"; Description: "MOD Plugin"; Types: "full"

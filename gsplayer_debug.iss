@@ -7,7 +7,7 @@ DefaultDirName={pf}\GSPlayer
 DefaultGroupName=GSPlayer
 AllowNoIcons=yes
 LicenseFile=gpl.txt
-OutputBaseFilename=GSPlayerSetup
+OutputBaseFilename=GSPlayerDebugSetup
 Compression=lzma
 SolidCompression=yes
 

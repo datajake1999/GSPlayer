@@ -25,7 +25,7 @@ extern BOOL M_StopBack; //Stop the music when a backward jump effect is played. 
 #define REG_NAME_SAMPLERATE		_T("SampleRate")
 #define REG_NAME_BITS			_T("Bits")
 #define REG_NAME_STEREO			_T("Stereo")
-#define REG_NAME_RAMPING		_T("Voices")
+#define REG_NAME_RAMPING		_T("Ramping")
 #define REG_NAME_NONINTERP		_T("NonInterpolated")
 #define REG_NAME_SURROUND		_T("SurroundMode")
 #define REG_NAME_MODMODE		_T("ModMode")

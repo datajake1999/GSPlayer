@@ -32,6 +32,7 @@ extern BOOL M_StopBack; //Stop the music when a backward jump effect is played. 
 #define REG_NAME_LOOP			_T("Loop")
 #define REG_NAME_JUMPBACK		_T("StopBack")
 #define REG_NAME_POSRESET		_T("PosReset")
+#define REG_NAME_CALCLEN		_T("CalcLen")
 
 void ReadRegistory()
 {
@@ -54,6 +55,7 @@ void ReadRegistory()
 	RegQueryValueEx(hKey, REG_NAME_LOOP, 0, &dwType, (LPBYTE)&M_Loop, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_JUMPBACK, 0, &dwType, (LPBYTE)&M_StopBack, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_POSRESET, 0, &dwType, (LPBYTE)&M_PosReset, &dwSize);
+	RegQueryValueEx(hKey, REG_NAME_CALCLEN, 0, &dwType, (LPBYTE)&M_CalculateLength, &dwSize);
 
 	//Copy over the values we are going to save next time:
 	Save_BitsPerSample = M_BitsPerSample;
@@ -85,4 +87,5 @@ void WriteRegistory()
 	RegSetValueEx(hKey, REG_NAME_LOOP, 0, REG_DWORD, (LPBYTE)&M_Loop, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_JUMPBACK, 0, REG_DWORD, (LPBYTE)&M_StopBack, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_POSRESET, 0, REG_DWORD, (LPBYTE)&M_PosReset, sizeof(DWORD));
+	RegSetValueEx(hKey, REG_NAME_CALCLEN, 0, REG_DWORD, (LPBYTE)&M_CalculateLength, sizeof(DWORD));
 }

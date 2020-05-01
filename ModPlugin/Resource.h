@@ -15,6 +15,7 @@
 #define IDC_JUMPBACK                    1007
 #define IDC_POSRESET                    1008
 #define IDC_INTERPOLATED                1009
+#define IDC_CALCLEN                1010
 #define IDC_ABOUT                      1011
 #define IDC_TITLE                       1012
 

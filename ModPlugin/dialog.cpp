@@ -131,6 +131,9 @@ BOOL ConfigDialogOnInitDialog(HWND hwndDlg)
 	if (M_PosReset)
 		SendMessage(GetDlgItem(hwndDlg, IDC_POSRESET), BM_SETCHECK, 1, 0);	
 
+	if (M_CalculateLength)
+		SendMessage(GetDlgItem(hwndDlg, IDC_CALCLEN), BM_SETCHECK, 1, 0);	
+
 	//Indicate that initialisation was successful
 	return TRUE;
 }
@@ -196,6 +199,12 @@ BOOL ConfigDialogOnOK(HWND hwndDlg)
 		M_PosReset = TRUE;
 	else
 		M_PosReset = FALSE;
+
+	//Calculate Length
+	if (SendMessage(GetDlgItem(hwndDlg, IDC_CALCLEN), BM_GETCHECK, 0, 0))
+		M_CalculateLength = TRUE;
+	else
+		M_CalculateLength = FALSE;
 	
 	//Close the Dialogue Box
 	EndDialog(hwndDlg, IDOK);

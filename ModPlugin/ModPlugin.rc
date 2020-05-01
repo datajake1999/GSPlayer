@@ -126,6 +126,9 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "ModPlugin Config"
 FONT 8, "System"
 BEGIN
+    LTEXT           "BASSMod Plugin Config",IDC_TITLE,5,3,74,9
+    GROUPBOX        "Updated After Restarting GSPlayer",IDC_STATIC,3,15,132,
+                    37
     LTEXT           "Sampling &Rate:",IDC_STATIC,7,28,49,8
     COMBOBOX        IDC_SAMPLERATE,65,26,66,102,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
@@ -133,6 +136,7 @@ BEGIN
                     WS_TABSTOP,7,40,56,10
     CONTROL         "&Stereo Sound",IDC_STEREO,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,65,40,59,10
+    GROUPBOX        "Updated on Next Track",IDC_STATIC,3,54,132,98
     LTEXT           "Ra&mping:",IDC_STATIC,7,66,31,8
     COMBOBOX        IDC_RAMPING,65,63,66,43,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -153,10 +157,6 @@ BEGIN
     PUSHBUTTON      "OK",IDOK,65,2,44,11
     PUSHBUTTON      "Cancel",IDCANCEL,95,2,44,11
     PUSHBUTTON      "&About...",IDC_ABOUT,125,2,44,11
-    LTEXT           "BASSMod Plugin Config",IDC_TITLE,5,3,74,9
-    GROUPBOX        "Updated After Restarting GSPlayer",IDC_STATIC,3,15,132,
-                    37
-    GROUPBOX        "Updated on Next Track",IDC_STATIC,3,54,132,98
 END
 
 

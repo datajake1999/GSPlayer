@@ -165,7 +165,6 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "ModPlugin Config"
 FONT 8, "System"
 BEGIN
-    LTEXT           "BASSMod Plugin Config",IDC_TITLE,5,3,74,9
     GROUPBOX        "Updated After Restarting GSPlayer",IDC_STATIC,3,15,132,
                     37
     LTEXT           "Sampling &Rate:",IDC_STATIC,7,28,49,8
@@ -210,6 +209,11 @@ END
 GUIDELINES DESIGNINFO DISCARDABLE 
 BEGIN
     IDD_CONFIG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 139
+        BOTTOMMARGIN, 155
+    END
+    IDD_CONFIG_PPC, DIALOG
     BEGIN
         RIGHTMARGIN, 139
         BOTTOMMARGIN, 155

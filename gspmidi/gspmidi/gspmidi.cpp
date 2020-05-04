@@ -49,6 +49,7 @@ int g_nBitsPerSample = 16;
 int g_nChannels = 2;
 int g_nVoices = 32;
 int g_nAmp = 80;
+int g_nControlRate = 1000;
 BOOL g_fAdjustPanning = FALSE;
 BOOL g_fFreeInst = FALSE;
 BOOL g_fAntialiasing = FALSE;
@@ -151,7 +152,9 @@ void ResetConfig()
 	free_instruments();
 
 	gsp_play_mode.rate = g_nSampleRate;
-	control_ratio = gsp_play_mode.rate / 1000;
+	control_ratio = gsp_play_mode.rate / g_nControlRate;
+	if (control_ratio > MAX_CONTROL_RATIO)
+		control_ratio = MAX_CONTROL_RATIO;
 	if (g_nBitsPerSample == 8)
 		gsp_play_mode.encoding &= ~PE_16BIT;
 	else

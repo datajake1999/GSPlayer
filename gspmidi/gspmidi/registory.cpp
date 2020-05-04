@@ -6,6 +6,7 @@ extern int g_nBitsPerSample;
 extern int g_nChannels;
 extern int g_nVoices;
 extern int g_nAmp;
+extern int g_nControlRate;
 extern BOOL g_fAdjustPanning;
 extern BOOL g_fFreeInst;
 extern BOOL g_fAntialiasing;
@@ -18,6 +19,7 @@ extern BOOL g_fFastEnv;
 #define REG_NAME_STEREO			_T("Stereo")
 #define REG_NAME_VOICES			_T("Voices")
 #define REG_NAME_AMP			_T("Amp")
+#define REG_NAME_CTRATE			_T("ControlRate")
 #define REG_NAME_ADJUSTPAN		_T("AdjustPanning")
 #define REG_NAME_FREEINST		_T("FreeInst")
 #define REG_NAME_ANTIALIAS		_T("Antialiasing")
@@ -39,6 +41,7 @@ void ReadRegistory()
 	}
 	RegQueryValueEx(hKey, REG_NAME_VOICES, 0, &dwType, (LPBYTE)&g_nVoices, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_AMP, 0, &dwType, (LPBYTE)&g_nAmp, &dwSize);
+	RegQueryValueEx(hKey, REG_NAME_CTRATE, 0, &dwType, (LPBYTE)&g_nControlRate, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_ADJUSTPAN, 0, &dwType, (LPBYTE)&g_fAdjustPanning, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_FREEINST, 0, &dwType, (LPBYTE)&g_fFreeInst, &dwSize);
 	RegQueryValueEx(hKey, REG_NAME_ANTIALIAS, 0, &dwType, (LPBYTE)&g_fAntialiasing, &dwSize);
@@ -66,6 +69,7 @@ void WriteRegistory()
 	RegSetValueEx(hKey, REG_NAME_STEREO, 0, REG_DWORD, (LPBYTE)&dwValue, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_VOICES, 0, REG_DWORD, (LPBYTE)&g_nVoices, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_AMP, 0, REG_DWORD, (LPBYTE)&g_nAmp, sizeof(DWORD));
+	RegSetValueEx(hKey, REG_NAME_CTRATE, 0, REG_DWORD, (LPBYTE)&g_nControlRate, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_ADJUSTPAN, 0, REG_DWORD, (LPBYTE)&g_fAdjustPanning, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_FREEINST, 0, REG_DWORD, (LPBYTE)&g_fFreeInst, sizeof(DWORD));
 	RegSetValueEx(hKey, REG_NAME_ANTIALIAS, 0, REG_DWORD, (LPBYTE)&g_fAntialiasing, sizeof(DWORD));

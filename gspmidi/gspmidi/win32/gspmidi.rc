@@ -85,6 +85,11 @@ BEGIN
     CONTROL         "Spin1",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,230,50,11,
                     14
+    LTEXT           "Control Ra&te:",IDC_STATIC,245,52,47,8
+    EDITTEXT        IDC_EDIT_CTRATE,305,50,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_CTRATE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,350,50,11,14
     CONTROL         "&16bits output",IDC_CHECK_16BITS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,75,105,10
     CONTROL         "&Stereo",IDC_CHECK_STEREO,"Button",BS_AUTOCHECKBOX | 

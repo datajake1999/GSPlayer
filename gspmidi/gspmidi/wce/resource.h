@@ -21,6 +21,8 @@
 #define IDC_TITLE                       1013
 #define IDC_ABOUT                       1014
 #define IDC_CHECK_FASTENV              1015
+#define IDC_EDIT_CTRATE                 1016
+#define IDC_SPIN_CTRATE                 1017
 
 // Next default values for new objects
 // 

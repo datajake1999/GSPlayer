@@ -17,6 +17,7 @@ extern int g_nBitsPerSample;
 extern int g_nChannels;
 extern int g_nVoices;
 extern int g_nAmp;
+extern int g_nControlRate;
 extern BOOL g_fAdjustPanning;
 extern BOOL g_fFreeInst;
 extern BOOL g_fAntialiasing;
@@ -41,6 +42,8 @@ BOOL ConfigDialogOnInitDialog(HWND hwndDlg)
 	SendMessage(GetDlgItem(hwndDlg, IDC_SPIN_VOICES), UDM_SETPOS, 0, MAKELONG((short)g_nVoices, 0));
 	SendMessage(GetDlgItem(hwndDlg, IDC_SPIN_AMP), UDM_SETRANGE32, 0, MAX_AMPLIFICATION);
 	SendMessage(GetDlgItem(hwndDlg, IDC_SPIN_AMP), UDM_SETPOS, 0, MAKELONG((short)g_nAmp, 0));
+	SendMessage(GetDlgItem(hwndDlg, IDC_SPIN_CTRATE), UDM_SETRANGE32, g_nSampleRate/MAX_CONTROL_RATIO, g_nSampleRate);
+	SendMessage(GetDlgItem(hwndDlg, IDC_SPIN_CTRATE), UDM_SETPOS, 0, MAKELONG((short)g_nControlRate, 0));
 
 	if (g_nBitsPerSample == 16)
 		SendMessage(GetDlgItem(hwndDlg, IDC_CHECK_16BITS), BM_SETCHECK, 1, 0);
@@ -80,6 +83,10 @@ BOOL ConfigDialogOnOK(HWND hwndDlg)
 	n = _tcstol(sz, NULL, 10);
 	if (n <= MAX_AMPLIFICATION)
 		g_nAmp = n;
+	GetWindowText(GetDlgItem(hwndDlg, IDC_EDIT_CTRATE), sz, MAX_PATH);
+	n = _tcstol(sz, NULL, 10);
+	if (n >= g_nSampleRate/MAX_CONTROL_RATIO && n <= g_nSampleRate)
+		g_nControlRate = n;
 
 	if (SendMessage(GetDlgItem(hwndDlg, IDC_CHECK_16BITS), BM_GETCHECK, 0, 0))
 		g_nBitsPerSample = 16;

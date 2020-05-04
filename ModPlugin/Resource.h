@@ -5,6 +5,7 @@
 #define IDS_ABOUT                       1
 #define IDS_AUTHOR                      2
 #define IDD_CONFIG                      103
+#define IDD_CONFIG_PPC                  104
 #define IDC_SAMPLERATE                  1000
 #define IDC_16BIT                       1001
 #define IDC_STEREO                      1002

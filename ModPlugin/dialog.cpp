@@ -266,7 +266,7 @@ void ShowConfigDialog(HWND hwndParent)
 	CWinceHelper helper;
 
 	//Shows the Dialogue
-	DialogBoxParam(M_hInst, MAKEINTRESOURCE(IDD_CONFIG), hwndParent, ConfigDialogProc, (LPARAM)&helper);
+	DialogBoxParam(M_hInst, MAKEINTRESOURCE(IDD_CONFIG_PPC), hwndParent, ConfigDialogProc, (LPARAM)&helper);
 #else
 	DialogBox(M_hInst, MAKEINTRESOURCE(IDD_CONFIG), hwndParent, ConfigDialogProc);
 #endif

@@ -168,7 +168,13 @@ void ResetConfig()
 		gsp_play_mode.encoding |= PE_MONO;
 
 	voices = g_nVoices;
+	if (voices > MAX_VOICES)
+		voices = MAX_VOICES;
+	else if (voices < 1)
+		voices = 1;
 	amplification = g_nAmp;
+	if (amplification > MAX_AMPLIFICATION)
+		amplification = MAX_AMPLIFICATION;
 	adjust_panning_immediately = g_fAdjustPanning;
 	free_instruments_afterwards = g_fFreeInst;
 	antialiasing_allowed = g_fAntialiasing;

@@ -20,6 +20,7 @@ Source: "bin\eng\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"; DestName: 
 Source: "bin\jpn\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"; Components: "japanese"
 Source: "document.txt"; DestDir: "{app}"
 Source: "document_jp.txt"; DestDir: "{app}"; Components: "japanese"
+Source: "gpl.txt"; DestDir: "{app}"
 Source: "gspflac\gspflac\DebugUnicode\gspflac.dll"; DestDir: "{app}"; Components: "flac"
 Source: "gspmidi\gspmidi\DebugUnicode\gspmidi.dll"; DestDir: "{app}"; Components: "midi"
 Source: "gspmp4\gspmp4\gspmp4\Debug\gspmp4.dll"; DestDir: "{app}"; Components: "mp4"

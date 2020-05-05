@@ -155,6 +155,8 @@ void ResetConfig()
 	control_ratio = gsp_play_mode.rate / g_nControlRate;
 	if (control_ratio > MAX_CONTROL_RATIO)
 		control_ratio = MAX_CONTROL_RATIO;
+	else if (control_ratio < 1)
+		control_ratio = 1;
 	if (g_nBitsPerSample == 8)
 		gsp_play_mode.encoding &= ~PE_16BIT;
 	else

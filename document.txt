@@ -1,0 +1,330 @@
+﻿-------------------------------------------------- ----------------------------
+GSPlayer version 2.29 / 2.29a
+Copyright (C) 2001-2008 Y.Nagamidori
+-------------------------------------------------- ----------------------------
+This software is free software.
+
+● Development history
+The screen is not so big for Windows CE handheld PC,
+MP3 player that is simple and holds down the necessary functions
+I wanted it, so I made it.
+
+
+● Features
+A simple MPEG Audio player.
+No more, no less.
+In addition, there is also a playback function for Ogg Vorbis files and Wave files.
+
+As a core module of MPEG Audio decoder
+I am using MAD MPEG Audio Decoder 0.15.1b.
+
+As a core module of the Ogg Vorbis decoder
+I am using Tremor version 1.0.
+
+
+● Playable file
+MPEG Audio Layer-1/2/3 (MP3)
+RMP file (Real Media format MP3)
+However, free format MPEG Audio files cannot be played for Windows CE.
+Also, it may not be compatible with version 2 of ID3TAG, but may be playable.
+
+Ogg Vorbis files
+RIFF Wave (PCM) file
+RIFF Wave (ACM) file
+
+
+● Target platform
+Windows Mobile 5.0 or later
+
+
+● Installation
+Only Windows Mobile version comes with an installer.
+After unzipping all the files with the unzip tool, run Setup.exe on your PC.
+
+The installer is not included in other environments.
+Use the executable file that suits your environment.
+When unzipping with a decompression tool, please unzip it with a folder.
+
+
+● How to use
+It's just an MPEG Audio player, so please use it based on your experience and intuition.
+There is no such a difficult function (bitter smile
+
+
+● Function
+・ About keyboard operation
+Most operations can be performed with one key on the keyboard.
+Display the menu to check the assigned keys.
+
+・ About equalizer
+For the equalizer of the type that operates 32 banks of MPEG Audio,
+Compared with an equalizer that performs FFT operation, it is considerably inferior.
+If you increase it too much, the sound will be distorted immediately. In that case, adjust the preamplifier to prevent distortion.
+This equalizer is simple. No great effect is obtained.
+Think of it as a minimum to compensate for the sound characteristics of the device.
+
+* Equalizer adjustment is enabled when playing Ogg Vorbis files and Wave files.
+I won't.
+
+
+・ Surround effect
+It is the same as the surround effect found in some cheap components.
+
+・ About 3D effect
+3D effect (3D chorus) is enabled.
+This process is heavy, so if you have a Windows CE machine, use a machine with a CPU of 200MHz or higher.
+It is recommended.
+
+・ About bass boost (bass amplification)
+Bass boost is enabled.
+If the bass is amplified too much, it will put a strain on your ears and make you more tired.
+Since this process is heavy, we recommend a machine with a CPU of 200MHz or higher for Windows CE.
+Also, if the bass is enhanced too much, sound cracking may occur.
+In that case, lower the volume with the equalizer preamplifier.
+
+・ About the resume function
+When the resume function is enabled, the playback position at the end of the player will be remembered, and it will be possible to play from the remembered position at the next startup.
+Even if you stop playback, you will be able to play from the next stopped position.
+
+・ About button assignment (PocketPC)
+For PocketPC, assign each function of the player to the buttons of PocketPC,
+You will be able to operate with the button.
+
+・ About automatic screen off / on (PocketPC / SmartPhone)
+For PocketPC, there is a function to turn off / on the screen automatically.
+Auto screen off turns off the screen automatically when the specified time elapses without operating the player.
+* If the main screen is not active, it will not turn off automatically.
+
+On the contrary, when the automatic screen is turned on, when the screen is off, the player function is automatically assigned
+Turn on the screen.
+* If you press a button to which no function is assigned, it will not turn on automatically.
+
+・ About preset function
+You can preset the settings of the equalizer and effects.
+Presets are saved in My Documents.
+
+
+● About gsgetfile.dll support for Windows CE
+For Windows CE, it corresponds to gsgetfile.dll.
+When this dll is installed, multiple files can be selected in the "Open" dialog.
+Please obtain this dll separately.
+
+
+● About Streaming (Shoutcast)
+You can receive and play Shoutcast stream like Winamp.
+Here's how to receive a simple Shoutcast.
+1) Open the Shoutcast (http://www.shoutcast.com) home page.
+2) Select your favorite genre / site and download the playlist (PLS extension)
+-> You can save by opening the icon (image) that says "Tune In!".
+3) Open the downloaded playlist with GS Player
+4) Start playback.
+
+As a matter of course, an internet connection environment is required for streaming.
+Will be required.
+It is also possible to stream MP3 files on the Web from "Open URL".
+Streaming playback is possible without downloading MP3 on the Web.
+
+
+● Notes
+・ We are not responsible for any damage caused by using this software.
+・ This software is made only for the self-satisfaction of the author.
+
+
+● Change history
+ver. 1.50a New creation
+ver. 1.51a Fixed because deadlock occurs.
+ver. 1.52a Improved operability
+Created as a test for Pocket PC
+ver. 1.60a The number of files that can be played has been increased by redesigning the playback engine.
+Streaming (including Shoutcast) support
+Supports reading PLS format file list
+Association function
+ver. 1.61a Skin support, faster drawing speed
+Add drawing when changing volume
+Add resume function
+8bit output / half rate output added
+Many other small improvements
+ver. 1.62a Add button assignment function (PocketPC)
+Automatic screen off / on function added (Pocket PC)
+English version
+Other fixes
+ver. 1.63a Fixed bug with button assignment function
+Modify resource
+ver. 1.64a Fixed bug due to contradiction of button assignment function specification (PocketPC)
+Implemented task tray icon addition function
+ver. 1.65a Bug fix of button assignment dialog (PocketPC)
+The process is canceled because the process accumulates too much when the assigned button is held down. (PocketPC)
+ver. 1.66a Fixed bugs related to font (Windows CE)
+Time display and seek error improvement during VBR playback (Windows CE)
+Bug fix on playlist display (during streaming)
+ver. 1.67a Improvement of sound quality
+ARM version faster (a few percent)
+ver. 1.70a Ogg Vorbis file playback support
+RIFF Wave file playback support
+Improved playback operation at the end of stream
+Enhanced association function
+ver. 1.71a Fixed because the end of the file was not played when playing the RIFF Wave file.
+ver. 1.72a Ogg Vorbis, Enabled only preamp to play Wave files
+Added option to enable post-seek fade effect
+Added option to enable automatic screen off only when using battery
+ver. 1.73a Fixed a bug that noise is generated when the fade effect is turned on.
+3D effect function added
+Effect screen changed by adding 3D effect function (Win32 / HPC)
+ver. 1.74a Fixed a memory leak when playing Ogg Vorbis files.
+Corrected the location where the memory could not be released at the end
+ver. 1.75a Fixed a bug when registering a directory as a playlist.
+ver. 1.76a Fixed a bug that "Start playback at startup" setting is not saved
+Fixed a bug that & is not displayed in the title
+ver. 1.80a File scan function can be turned on and off completely
+Review of bass boost processing Reduced noise (Windows CE)
+Change the equalizer change limit from ± 10db to ± 20db
+Reviewing the volume modification process
+Change processing when invalid file is in playlist
+Added an add button to the playlist display screen
+Added a save button to the playlist display screen
+Enabled to select multiple items on the playlist display screen
+Enabled to rearrange items on the playlist display screen by drag and drop
+Removed the button on the playlist screen and made it a toolbar (PocketPC)
+ver. 1.81a Fixed a bug that the file type cannot be classified in the playback file selection dialog.
+Fixed a bug in MPEG2 Audio that the peak meter was drawn too frequently.
+Enabled to select the level of 3D effect.
+ver. 1.82a Supports reading and writing relative path playlist
+ver. 1.83a Fixed because there was a case where it did not stop when playing MP3 files.
+Optimized the buffer when playing MP3 files
+Create binary for Sigmarion3
+ver. 1.85a Fixed a problem that noise is generated when using a preamplifier when playing a WAVE file.
+We investigated the WAVE files that cannot be played and took countermeasures.
+Added 1 song repeat playback
+Full-screen display of PocketPC version. (change design)
+Improvement of automatic display off judgment algorithm (PocketPC version)
+Improved display on / off routine (PocketPC version)
+ver. 1.86a Fixed because suspend could not be suppressed on some Windows CE machines (Windows CE version)
+Compiler changed to eMbedded Visual C ++ 4.0 (Windows CE ARM version only)
+ver. 1.87a Added automatic preamp adjustment function when using effects
+Add "include subfolders" to folder search (Windows CE version)
+Added equalizer and effect preset function
+Volume setting slider added (PocketPC version)
+ver. 1.90a Readjustment of automatic preamp adjustment function
+Change processing related to preset storage
+Title scrolling function added
+Volume setting slider added
+Change skin specifications
+ver. 1.91a File reading part improvement
+Change thread priority
+Bug fix for button assignment (PocketPC)
+ver. 1.92a Option setting Delete half rate decoding
+Option setting 8bit output deleted
+Speed ​​up the MPEG Audio file analysis unit
+Sound quality adjustment for MPEG Audio playback
+Fixed the problem that the proxy server settings could not be read
+ver. 1.93a Improvement of streaming processing thread
+Fixed a bug that drawing mistakes occur when scrolling titles during streaming
+Changed to display connection status during streaming
+Fixed other minor issues
+ver. 1.94a Fixed a bug that analysis of streaming title failed.
+Fixed a bug that the repeat function does not work depending on the timing
+Fixed a bug that some files hang when "Suppress silence at the beginning of file" is turned on.
+ver. 1.95a Added Ogg Vorbis streaming function
+Temporarily added support for Icecast2
+ver. 1.96a Fixed a bug of title scroll
+Fixed a stack overflow bug when streaming connection
+Changed Ogg Vorbis decoder to high quality version (Windows CE ARM version)
+ver. 1.97a Adjustment around audio output
+"Always open output device" option added (petition noise reduction)
+Reverb and echo effect functions added
+ver. 1.98a Bug fix for Ogg Vorbis streaming function
+Added sleep timer function
+Streaming function efficiency improvement
+Fixed a problem that the automatic screen off function does not work
+Many other bug fixes
+ver. 2.00a Fixed a bug that streaming of a size that does not reach the prebuffer amount cannot be performed.
+3D effect improvement
+Bass boost improvement (effect increase)
+Effect-related readjustment
+ver. 2.01a Reverb and echo readjustment
+Output buffer related readjustment
+Delete unnecessary code
+Some skin improvements
+ver. 2.02a Bass boost improvement
+Output buffering adjustment
+Removed Linear Dither processing for MPEG audio
+Faster MIPS version (change compiler options)
+Restructure project file
+ver. 2.03a Addition of hold function (PocketPC version)
+Change compiler options again (other than ARM Win32)
+ver. 2.05a Supports PocketPC2003SE Landscape / Square screen
+Pocket PC version menu configuration change
+Keyboard shortcut added to PocketPC version
+ver. 2.06a The distortion of Berth boost is too big, so I fixed it.
+Hold function display related correction (PocketPC version)
+ver. 2.07a Improvement of buffer usage efficiency during MP3 playback
+Fixed a problem related to suppression of silent sample at the end of file
+Bass boost frequency change
+ver.2.08a Fixed because the process of reading the end of MP3 file was incorrect.
+ver.2.09a Bass boost distortion reduction
+Remove "Add" from toolbar
+ver.2.10a Removed "add" from the toolbar, but returned it because the reputation was bad.
+Fixed deadlock when closing sound device (probably)
+ver.2.11a Slightly improved usability of the preset screen
+Fixed a bug that opening a file is incorrect if the file being played is deleted from the list.
+ver.2.15a Reduced CPU load of 3D effect
+Change of MAD build method for Win32 version (FPM_INTEL)
+Added 64bits high quality MP3 decoding version to PocketPC version (FPM_64BIT)
+ver.2.16a Improvement of MPEG Audio analysis speed
+Buffer-related readjustment
+Change the range of 3D effect (it became incompatible)
+ver.2.17a The check of the file was loosened.
+* Files that cannot be played will be registered, but the experience should be improved.
+Display improvements (PocketPC version)
+ver.2.20a Implementation of decoder plug-in interface
+Play engine modification
+UI review
+Fixed Wav file playback bug
+Many other changes
+ver.2.21a Bug fix related to decoder plug-in
+Specification changes related to reading file information such as ID3 tags
+ver.2.22a Bass boost overflows when adding effects
+Fixed the problem of noise
+ver.2.23a Bass boost review
+Interface creation for WM2005 (β version)
+Changed the attached gsgetfile.dll to the latest version
+ver.2.24a 2.23 is linked to the LIB for playback of the prototype, so bass boost is incorrect, readjustment
+ver.2.25a Review Bass Boost
+Fixed menu bug (Windows Mobile 2005 version)
+ver.2.26a Only the WM5 version has been updated because the development tools have been moved to Visual Studio 2005 STD.
+Upgraded the MPEG audio decoder to 0.15.1b (speed up etc.)
+VGA compatible (by Jonathan Misurda)
+Response when command line parameter includes URL (by Uraroji)
+Optimized default parameters for WM5
+Change the registry value storage location
+Fixed a bug that files that do not contain audio data within 4 KB cannot be streamed.
+Bug correction and display adjustment when displaying VGA
+Bug fix of gsgetfile.dll, original WM6 support
+ver.2.27a Supports ID3TAG v2
+ver.2.28a There was a problem with ID3TAG v2.
+ver.2.29a Officially supports Smart Phone
+Added option not to use system volume
+Fixed because the ringtone does not sound when it is associated with a file on a SmartPhone, etc.
+
+
+● About the version attached to gsgetfile.dll
+The attached gsgetfile.dll uses the modified international version of Homin's gsgetfile.dll.
+We would like to thank Homin for sharing the source code of the useful library.
+Thank you very much.
+
+
+● About importing a modified version of GSPlayer
+Version 2.26 incorporates the following modified GSPlayer functions.
+
+ -VGA version (by Jonathan Misurda)
+ -GSPlayerU (by Uraroji)
+
+We would like to thank each author.
+Thank you very much.
+
+ Special Thanks to Jonathan Misurda (VGA version)
+ Special Thanks to Uraroji (GSPlayerU)
+
+
+● Soliloquy
+Since I moved to VS2005, I can no longer build other than WM5 / Win32.

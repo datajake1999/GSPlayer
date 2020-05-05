@@ -18,6 +18,8 @@ Name: ja; MessagesFile: "compiler:Languages\Japanese.isl"
 [Files]
 Source: "bin\eng\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"; DestName: "GSPlayer2e.exe"
 Source: "bin\jpn\Win32\DebugUnicode\GSPlayer2.exe"; DestDir: "{app}"; Components: "japanese"
+Source: "document.txt"; DestDir: "{app}"
+Source: "document_jp.txt"; DestDir: "{app}"; Components: "japanese"
 Source: "gspflac\gspflac\DebugUnicode\gspflac.dll"; DestDir: "{app}"; Components: "flac"
 Source: "gspmidi\gspmidi\DebugUnicode\gspmidi.dll"; DestDir: "{app}"; Components: "midi"
 Source: "gspmp4\gspmp4\gspmp4\Debug\gspmp4.dll"; DestDir: "{app}"; Components: "mp4"
@@ -38,6 +40,8 @@ Filename: "{app}\GSPlayer2e.exe"; Description: "{cm:LaunchProgram,GSPlayer}"; Fl
 [Icons]
 Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
 Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"
+Name: "{group}\Documentation"; Filename: "{app}\document.txt"
+Name: "{group}\Documentation (Japanese)"; Filename: "{app}\document_jp.txt"; Components: "japanese"
 Name: "{group}\{cm:UninstallProgram,GSPlayer}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: desktopicon
 

@@ -3,18 +3,6 @@ Microsoft eMbedded Visual Tools Workspace File, Format Version 4.00
 
 ###############################################################################
 
-Project: "gspflac"=".\gspflac\ARMV4\gspflac.vcp" - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "libFLAC_static"=".\libFLAC\ARMV4\libFLAC_static.vcp" - Package Owner=<4>
 
 Package=<5>
@@ -28,6 +16,18 @@ Package=<4>
 ###############################################################################
 
 Project: "libFLACpp_static"=".\LIBFLAC++\ARMV4\libFLACpp_static.vcp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gspflac"=".\gspflac\ARMV4\gspflac.vcp" - Package Owner=<4>
 
 Package=<5>
 {{{

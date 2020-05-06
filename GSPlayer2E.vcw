@@ -3,30 +3,6 @@ Microsoft eMbedded Visual Tools Workspace File, Format Version 4.00
 
 ###############################################################################
 
-Project: "GSPlayer2e"=.\GSPlayer2\WinCE_PPC2005\GSPlayer2e.vcp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "GSPlayer_MUI"=.\GSPlayer2\WinCE_PPC2005\GSPlayer_MUI.vcp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "libmad"=.\libmad\libmad.vcp - Package Owner=<4>
 
 Package=<5>
@@ -52,6 +28,30 @@ Package=<4>
 ###############################################################################
 
 Project: "maplay"=.\maplay\maplay.vcp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GSPlayer2e"=.\GSPlayer2\WinCE_PPC2005\GSPlayer2e.vcp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GSPlayer_MUI"=.\GSPlayer2\WinCE_PPC2005\GSPlayer_MUI.vcp - Package Owner=<4>
 
 Package=<5>
 {{{

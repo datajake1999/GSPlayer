@@ -26,6 +26,7 @@ Source: "gspmidi\gspmidi\Release\gspmidi.dll"; DestDir: "{app}"; Components: "mi
 Source: "gstta\Release\gstta.dll"; DestDir: "{app}"; Components: "tta"
 Source: "ModPlugin\WIN32\BASSMOD.dll"; DestDir: "{app}"; Components: "mod"
 Source: "ModPlugin\WIN32\Release\ModPlugin.dll"; DestDir: "{app}"; Components: "mod"
+Source: "ResetConfig\Release\ResetConfig.exe"; DestDir: "{app}"; Components: "reset"
 Source: "gmbank\gm.cfg"; DestDir: "{app}"; Components: "inst"
 Source: "gmbank\gm\*.pat"; DestDir: "{app}\gm"; Components: "inst"
 Source: "skins\*"; DestDir: "{app}\Skins"; Flags: recursesubdirs; Components: "skins"
@@ -42,6 +43,7 @@ Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
 Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"
 Name: "{group}\Documentation"; Filename: "{app}\document.txt"
 Name: "{group}\Documentation (Japanese)"; Filename: "{app}\document_jp.txt"; Components: "japanese"
+Name: "{group}\Reset GSPlayer Configuration"; Filename: "{app}\ResetConfig.exe"; Components: "reset"
 Name: "{group}\{cm:UninstallProgram,GSPlayer}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: desktopicon
 
@@ -56,6 +58,7 @@ Name: "mod"; Description: "MOD Plugin"; Types: "full"
 Name: "mp4"; Description: "MP4 Plugin"; Types: "full"
 Name: "tta"; Description: "TTA Plugin"; Types: "full"
 Name: "wma"; Description: "WMA Plugin"; Types: "full"
+Name: "reset"; Description: "Configuration Reset Tool"; Types: "full"
 Name: "skins"; Description: "Skins"; Types: "full"
 Name: "inst"; Description: "MIDI Instruments"; Types: "full"
 

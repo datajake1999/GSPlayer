@@ -38,6 +38,9 @@ Root: HKCU; Subkey: "Software\GreenSoftware\GSPlayer\Plug-ins\gspmidi"; ValueNam
 Filename: "{app}\GSPlayer2e.exe"; Description: "{cm:LaunchProgram,GSPlayer}"; Flags: nowait postinstall skipifsilent
 Filename: "{app}\document.txt"; Description: "View Documentation"; Flags: shellexec postinstall skipifsilent unchecked
 
+[UninstallRun]
+Filename: "{app}\ResetConfig.exe"; Components: "reset"
+
 [Icons]
 Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
 Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"

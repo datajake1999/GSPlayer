@@ -134,4 +134,5 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
       else
          MessageBox(NULL, "There was a problem resetting the configuration.", "Error", MB_ICONERROR | MB_OK);
    }
+
 }

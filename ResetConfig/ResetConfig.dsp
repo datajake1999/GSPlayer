@@ -92,6 +92,10 @@ LINK32=link.exe
 
 SOURCE=.\ResetConfig.c
 # End Source File
+# Begin Source File
+
+SOURCE=.\ResetConfig.rc
+# End Source File
 # End Group
 # Begin Group "Header Files"
 

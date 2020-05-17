@@ -46,6 +46,7 @@ Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
 Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"
 Name: "{group}\Documentation"; Filename: "{app}\document.txt"
 Name: "{group}\Documentation (Japanese)"; Filename: "{app}\document_jp.txt"; Components: "japanese"
+Name: "{group}\License"; Filename: "{app}\gpl.txt"
 Name: "{group}\Reset GSPlayer Configuration"; Filename: "{app}\ResetConfig.exe"; Components: "reset"
 Name: "{group}\{cm:UninstallProgram,GSPlayer}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: desktopicon

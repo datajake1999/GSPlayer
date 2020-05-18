@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <stdio.h>
 #include <strsafe.h>
+#include <shlobj.h>
+#pragma comment (lib, "shell32.lib")
 
 //*************************************************************
 //
@@ -121,6 +123,48 @@ BOOL RegDelnode (HKEY hKeyRoot, LPCTSTR lpSubKey)
 
 }
 
+void DeleteEffectPresets()
+{
+	char FolderPath[MAX_PATH];
+	char FilePath[MAX_PATH];
+	WIN32_FIND_DATAA fd;
+	HANDLE hFind;
+	//Get the path of the My Documents folder
+	SHGetSpecialFolderPath(NULL, FolderPath, CSIDL_PERSONAL, FALSE);
+	//Append the name of the preset folder
+	StringCchCat(FolderPath, MAX_PATH, "\\preset");
+	//Copy the preset folder path
+	StringCchCopy(FilePath, MAX_PATH, FolderPath);
+	//Append the preset search term
+	StringCchCat(FilePath, MAX_PATH, "\\*.gpe");
+	//Try to find the first file
+	hFind = FindFirstFile(FilePath, &fd);
+	if (hFind == INVALID_HANDLE_VALUE)
+	{
+		return;
+	}
+	/*
+For the first file or any subsequent files:
+1. Copy the folder path.
+2. Append a backslash character.
+3. Append the file name.
+4. Delete the file.
+*/
+	StringCchCopy(FilePath, MAX_PATH, FolderPath);
+	StringCchCat(FilePath, MAX_PATH, "\\");
+	StringCchCat(FilePath, MAX_PATH, fd.cFileName);
+	DeleteFile(FilePath);
+	while (FindNextFile(hFind, &fd))
+	{
+		StringCchCopy(FilePath, MAX_PATH, FolderPath);
+		StringCchCat(FilePath, MAX_PATH, "\\");
+		StringCchCat(FilePath, MAX_PATH, fd.cFileName);
+		DeleteFile(FilePath);
+	}
+	//Close the handel to hFind
+	FindClose(hFind);
+}
+
 int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCommandLine, int cmdShow)
 {
    BOOL bSuccess;
@@ -129,6 +173,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    CMDResult = strcmp(lpszCommandLine, "/s");
    if (CMDResult == 0)
    {
+      DeleteEffectPresets();
       RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
       return 0;
    }
@@ -138,6 +183,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    {
       if (MessageBox(NULL, "Do you wish to reset the GSPlayer configuration?", "", MB_ICONQUESTION | MB_YESNO) == IDYES)
       {
+         DeleteEffectPresets();
          RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
       }
       return 0;
@@ -145,6 +191,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 
    if (MessageBox(NULL, "Are you sure you want to reset the GSPlayer configuration?", "Reset GSPlayer Configuration", MB_ICONQUESTION | MB_YESNO) == IDYES)
    {
+      DeleteEffectPresets();
       bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
 
       if(bSuccess)

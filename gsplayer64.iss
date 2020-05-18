@@ -63,7 +63,7 @@ Filename: "{app}\GSPlayer2e.exe"; Description: "{cm:LaunchProgram,GSPlayer}"; Fl
 Filename: "{app}\document.txt"; Description: "View Documentation"; Flags: shellexec postinstall skipifsilent unchecked
 
 [UninstallRun]
-Filename: "{app}\ResetConfig.exe"; Components: "reset"
+Filename: "{app}\ResetConfig.exe"; Parameters: "/u"; Components: "reset"
 
 [Icons]
 Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"

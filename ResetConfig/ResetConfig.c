@@ -133,6 +133,16 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
       return 0;
    }
 
+   CMDResult = strcmp(lpszCommandLine, "/u");
+   if (CMDResult == 0)
+   {
+      if (MessageBox(NULL, "Do you wish to reset the GSPlayer configuration?", "", MB_ICONQUESTION | MB_YESNO) == IDYES)
+      {
+         RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+      }
+      return 0;
+   }
+
    if (MessageBox(NULL, "Are you sure you want to reset the GSPlayer configuration?", "Reset GSPlayer Configuration", MB_ICONQUESTION | MB_YESNO) == IDYES)
    {
       bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));

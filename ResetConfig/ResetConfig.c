@@ -124,6 +124,14 @@ BOOL RegDelnode (HKEY hKeyRoot, LPCTSTR lpSubKey)
 int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCommandLine, int cmdShow)
 {
    BOOL bSuccess;
+   int CMDResult;
+
+   CMDResult = strcmp(lpszCommandLine, "/s");
+   if (CMDResult == 0)
+   {
+      RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+      return 0;
+   }
 
    if (MessageBox(NULL, "Are you sure you want to reset the GSPlayer configuration?", "Reset GSPlayer Configuration", MB_ICONQUESTION | MB_YESNO) == IDYES)
    {
@@ -135,4 +143,5 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
          MessageBox(NULL, "There was a problem resetting the configuration.", "Error", MB_ICONERROR | MB_OK);
    }
 
+   return 0;
 }

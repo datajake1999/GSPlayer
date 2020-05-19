@@ -141,6 +141,7 @@ void DeleteEffectPresets()
 	hFind = FindFirstFile(FilePath, &fd);
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
+		printf("No files found.\n");
 		return;
 	}
 	/*
@@ -153,13 +154,19 @@ For the first file or any subsequent files:
 	StringCchCopy(FilePath, MAX_PATH, FolderPath);
 	StringCchCat(FilePath, MAX_PATH, "\\");
 	StringCchCat(FilePath, MAX_PATH, fd.cFileName);
-	DeleteFile(FilePath);
+	if (DeleteFile(FilePath) == 0)
+	{
+		printf("Error deleting %s.\n", FilePath);
+	}
 	while (FindNextFile(hFind, &fd))
 	{
 		StringCchCopy(FilePath, MAX_PATH, FolderPath);
 		StringCchCat(FilePath, MAX_PATH, "\\");
 		StringCchCat(FilePath, MAX_PATH, fd.cFileName);
-		DeleteFile(FilePath);
+		if (DeleteFile(FilePath) == 0)
+		{
+			printf("Error deleting %s.\n", FilePath);
+		}
 	}
 	//Close the handel to hFind
 	FindClose(hFind);

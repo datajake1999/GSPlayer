@@ -170,6 +170,13 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    BOOL bSuccess;
    int CMDResult;
 
+   CMDResult = strcmp(lpszCommandLine, "/h");
+   if (CMDResult == 0)
+   {
+      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+      return 0;
+   }
+
    CMDResult = strcmp(lpszCommandLine, "/s");
    if (CMDResult == 0)
    {

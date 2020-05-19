@@ -227,16 +227,14 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
       RedirectStdOut();
    }
 
-   CMDResult = strcmp(lpszCommandLine, "/s");
-   if (CMDResult == 0)
+   if (strstr(lpszCommandLine, "/s"))
    {
       DeleteEffectPresets();
       RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
       return 0;
    }
 
-   CMDResult = strcmp(lpszCommandLine, "/u");
-   if (CMDResult == 0)
+   if (strstr(lpszCommandLine, "/u"))
    {
       if (MessageBox(NULL, "Do you wish to reset the GSPlayer configuration?", "", MB_ICONQUESTION | MB_YESNO) == IDYES)
       {

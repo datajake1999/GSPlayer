@@ -172,6 +172,44 @@ For the first file or any subsequent files:
 	FindClose(hFind);
 }
 
+/**
+ * The following function shows one way that a GUI application can redirect the stdout 
+ * stream to a new console    window. After the following function has been called, the 
+ * GUI program can use C runtime functions like printf to display information on the 
+ * console window. This can be useful during debugging.
+ */
+
+void RedirectStdOut(void)
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+    // Create a new console window.
+    if (!AllocConsole()) return;
+
+    // Set the screen buffer to be larger than normal (this is optional).
+    if (GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+    {
+        csbi.dwSize.Y = 1000; // any useful number of lines...
+        SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), csbi.dwSize);
+    }
+ 
+
+    // Redirect "stdin" to the console window.
+    if (!freopen("CONIN$", "w", stdin)) return;
+ 
+
+    // Redirect "stderr" to the console window.
+    if (!freopen("CONOUT$", "w", stderr)) return;
+
+    // Redirect "stdout" to the console window.
+    if (!freopen("CONOUT$", "w", stdout)) return;
+ 
+
+    // Turn off buffering for "stdout" ("stderr" is unbuffered by default).
+
+    setbuf(stdout, NULL);
+}
+
 int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCommandLine, int cmdShow)
 {
    BOOL bSuccess;
@@ -180,8 +218,13 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    CMDResult = strcmp(lpszCommandLine, "/h");
    if (CMDResult == 0)
    {
-      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/l - log errors to console\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
       return 0;
+   }
+
+   if (strstr(lpszCommandLine, "/l"))
+   {
+      RedirectStdOut();
    }
 
    CMDResult = strcmp(lpszCommandLine, "/s");

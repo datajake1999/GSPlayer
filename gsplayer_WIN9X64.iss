@@ -63,6 +63,10 @@ Filename: "{app}\document.txt"; Description: "View Documentation"; Flags: shelle
 [UninstallRun]
 Filename: "{app}\ResetConfig.exe"; Parameters: "/u"; Components: "reset"
 
+[UninstallDelete]
+Type: files; Name: "{app}\GSPlayer2.m3u"
+Type: files; Name: "{app}\GSPlayer2e.m3u"
+
 [Icons]
 Name: "{group}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"
 Name: "{group}\GSPlayer (Japanese)"; Filename: "{app}\GSPlayer2.exe"; Components: "japanese"

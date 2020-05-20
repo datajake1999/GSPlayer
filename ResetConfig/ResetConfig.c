@@ -195,7 +195,7 @@ void RedirectStdOut(void)
  
 
     // Redirect "stdin" to the console window.
-    if (!freopen("CONIN$", "w", stdin)) return;
+    if (!freopen("CONIN$", "r", stdin)) return;
  
 
     // Redirect "stderr" to the console window.

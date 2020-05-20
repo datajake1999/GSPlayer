@@ -141,7 +141,7 @@ void DeleteEffectPresets()
 	hFind = FindFirstFile(FilePath, &fd);
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
-		printf("No files found.\n");
+		printf("No preset files found.\n");
 		return;
 	}
 	/*

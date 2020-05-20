@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <conio.h>
 #include <stdio.h>
 #include <strsafe.h>
 #include <shlobj.h>
@@ -214,11 +215,12 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 {
    BOOL bSuccess;
    int CMDResult;
+   char choice;
 
    CMDResult = strcmp(lpszCommandLine, "/h");
    if (CMDResult == 0)
    {
-      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/l - log errors to console\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
       return 0;
    }
 
@@ -231,6 +233,24 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    {
       DeleteEffectPresets();
       RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+      return 0;
+   }
+
+   if (strstr(lpszCommandLine, "/c"))
+   {
+      printf("Are you sure you want to reset the GSPlayer configuration? Y/N\n");
+      scanf("%c", &choice);
+      if (choice == 'y' || choice == 'Y')
+      {
+         DeleteEffectPresets();
+         bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+         if(bSuccess)
+            printf("Configuration Reset!\n");
+         else
+            printf("There was a problem resetting the configuration.\n");
+      }
+      printf("Press any key to exit.\n");
+      getch();
       return 0;
    }
 

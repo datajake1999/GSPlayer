@@ -249,6 +249,10 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
          else
             printf("There was a problem resetting the configuration.\n");
       }
+      else if (choice == 'n' || choice == 'N')
+      {
+         printf("Configuration has not been reset.\n");
+      }
       printf("Press any key to exit.\n");
       getch();
       return 0;

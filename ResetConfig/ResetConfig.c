@@ -1,3 +1,4 @@
+#include "logfile.h"
 #include <windows.h>
 #include <conio.h>
 #include <stdio.h>
@@ -42,10 +43,12 @@ BOOL RegDelnodeRecurse (HKEY hKeyRoot, LPTSTR lpSubKey)
     {
         if (lResult == ERROR_FILE_NOT_FOUND) {
             printf("Key not found.\n");
+            LogFileWrite("Key not found.\n");
             return TRUE;
         } 
         else {
             printf("Error opening key.\n");
+            LogFileWrite("Error opening key.\n");
             return FALSE;
         }
     }
@@ -143,6 +146,7 @@ void DeleteEffectPresets()
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
 		printf("No preset files found.\n");
+		LogFileWrite("No preset files found.\n");
 		return;
 	}
 	/*
@@ -158,6 +162,7 @@ For the first file or any subsequent files:
 	if (DeleteFile(FilePath) == 0)
 	{
 		printf("Error deleting %s.\n", FilePath);
+		LogFileWrite("Error deleting %s.\n", FilePath);
 	}
 	while (FindNextFile(hFind, &fd))
 	{
@@ -167,6 +172,7 @@ For the first file or any subsequent files:
 		if (DeleteFile(FilePath) == 0)
 		{
 			printf("Error deleting %s.\n", FilePath);
+			LogFileWrite("Error deleting %s.\n", FilePath);
 		}
 	}
 	//Close the handel to hFind
@@ -220,7 +226,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    CMDResult = strcmp(lpszCommandLine, "/h");
    if (CMDResult == 0)
    {
-      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+      MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/f - log errors to file\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
       return 0;
    }
 
@@ -231,13 +237,25 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 
    if (strstr(lpszCommandLine, "/s"))
    {
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileOpen("ResetConfig.log");
+      }
       DeleteEffectPresets();
       RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileClose();
+      }
       return 0;
    }
 
    if (strstr(lpszCommandLine, "/c"))
    {
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileOpen("ResetConfig.log");
+      }
       printf("Are you sure you want to reset the GSPlayer configuration? Y/N\n");
       scanf("%c", &choice);
       if (choice == 'y' || choice == 'Y')
@@ -253,6 +271,10 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
       {
          printf("Configuration has not been reset.\n");
       }
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileClose();
+      }
       printf("Press any key to exit.\n");
       getch();
       return 0;
@@ -262,14 +284,26 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
    {
       if (MessageBox(NULL, "Do you wish to reset the GSPlayer configuration?", "", MB_ICONQUESTION | MB_YESNO) == IDYES)
       {
+         if (strstr(lpszCommandLine, "/f"))
+         {
+            LogFileOpen("ResetConfig.log");
+         }
          DeleteEffectPresets();
          RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
+         if (strstr(lpszCommandLine, "/f"))
+         {
+            LogFileClose();
+         }
       }
       return 0;
    }
 
    if (MessageBox(NULL, "Are you sure you want to reset the GSPlayer configuration?", "Reset GSPlayer Configuration", MB_ICONQUESTION | MB_YESNO) == IDYES)
    {
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileOpen("ResetConfig.log");
+      }
       DeleteEffectPresets();
       bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
 
@@ -277,6 +311,10 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
          MessageBox(NULL, "Configuration Reset!", "Success", MB_ICONINFORMATION | MB_OK);
       else
          MessageBox(NULL, "There was a problem resetting the configuration.", "Error", MB_ICONERROR | MB_OK);
+      if (strstr(lpszCommandLine, "/f"))
+      {
+         LogFileClose();
+      }
    }
 
    return 0;

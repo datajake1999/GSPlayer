@@ -151,6 +151,10 @@ void ResetConfig()
 
 	free_instruments();
 
+	if (g_nSampleRate > MAX_OUTPUT_RATE)
+		g_nSampleRate = MAX_OUTPUT_RATE;
+	else if (g_nSampleRate < MIN_OUTPUT_RATE)
+		g_nSampleRate = MIN_OUTPUT_RATE;
 	gsp_play_mode.rate = g_nSampleRate;
 	control_ratio = gsp_play_mode.rate / g_nControlRate;
 	if (control_ratio > MAX_CONTROL_RATIO)

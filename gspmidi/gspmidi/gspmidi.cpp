@@ -175,6 +175,10 @@ void ResetConfig()
 	else
 		gsp_play_mode.encoding |= PE_MONO;
 
+	if (g_nVoices > MAX_VOICES)
+		g_nVoices = MAX_VOICES;
+	else if (g_nVoices < 1)
+		g_nVoices = 1;
 	voices = g_nVoices;
 	if (voices > MAX_VOICES)
 		voices = MAX_VOICES;

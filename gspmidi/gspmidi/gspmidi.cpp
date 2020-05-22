@@ -184,6 +184,8 @@ void ResetConfig()
 		voices = MAX_VOICES;
 	else if (voices < 1)
 		voices = 1;
+	if (g_nAmp > MAX_AMPLIFICATION)
+		g_nAmp = MAX_AMPLIFICATION;
 	amplification = g_nAmp;
 	if (amplification > MAX_AMPLIFICATION)
 		amplification = MAX_AMPLIFICATION;

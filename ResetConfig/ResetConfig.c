@@ -127,12 +127,13 @@ BOOL RegDelnode (HKEY hKeyRoot, LPCTSTR lpSubKey)
 
 }
 
-void DeleteEffectPresets()
+BOOL DeleteEffectPresets()
 {
 	char FolderPath[MAX_PATH];
 	char FilePath[MAX_PATH];
 	WIN32_FIND_DATAA fd;
 	HANDLE hFind;
+	BOOL error;
 	//Get the path of the My Documents folder
 	SHGetSpecialFolderPath(NULL, FolderPath, CSIDL_PERSONAL, FALSE);
 	//Append the name of the preset folder
@@ -147,7 +148,7 @@ void DeleteEffectPresets()
 	{
 		printf("No preset files found.\n");
 		LogFileWrite("No preset files found.\n");
-		return;
+		return FALSE;
 	}
 	/*
 For the first file or any subsequent files:
@@ -163,6 +164,7 @@ For the first file or any subsequent files:
 	{
 		printf("Error deleting %s.\n", FilePath);
 		LogFileWrite("Error deleting %s.\n", FilePath);
+		error = TRUE;
 	}
 	while (FindNextFile(hFind, &fd))
 	{
@@ -173,10 +175,12 @@ For the first file or any subsequent files:
 		{
 			printf("Error deleting %s.\n", FilePath);
 			LogFileWrite("Error deleting %s.\n", FilePath);
+			error = TRUE;
 		}
 	}
 	//Close the handel to hFind
 	FindClose(hFind);
+	return error;
 }
 
 /**
@@ -260,7 +264,8 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 		scanf("%c", &choice);
 		if (choice == 'y' || choice == 'Y')
 		{
-			DeleteEffectPresets();
+			if (DeleteEffectPresets() == TRUE)
+			printf("1 Or more presets couldn't be deleted.\n");
 			bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
 			if(bSuccess)
 			printf("Configuration Reset!\n");
@@ -304,7 +309,8 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 		{
 			LogFileOpen("ResetConfig.log");
 		}
-		DeleteEffectPresets();
+		if (DeleteEffectPresets() == TRUE)
+		MessageBox(NULL, "1 Or more presets couldn't be deleted.", "Warning", MB_ICONEXCLAMATION | MB_OK);
 		bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
 
 		if(bSuccess)

@@ -42,12 +42,12 @@ BOOL RegDelnodeRecurse (HKEY hKeyRoot, LPTSTR lpSubKey)
 	if (lResult != ERROR_SUCCESS) 
 	{
 		if (lResult == ERROR_FILE_NOT_FOUND) {
-			printf("Key not found.\n");
+			fprintf(stderr, "Key not found.\n");
 			LogFileWrite("Key not found.\n");
 			return TRUE;
 		} 
 		else {
-			printf("Error opening key.\n");
+			fprintf(stderr, "Error opening key.\n");
 			LogFileWrite("Error opening key.\n");
 			return FALSE;
 		}
@@ -146,7 +146,7 @@ BOOL DeleteEffectPresets()
 	hFind = FindFirstFile(FilePath, &fd);
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
-		printf("No preset files found.\n");
+		fprintf(stderr, "No preset files found.\n");
 		LogFileWrite("No preset files found.\n");
 		return FALSE;
 	}
@@ -162,7 +162,7 @@ For the first file or any subsequent files:
 	StringCchCat(FilePath, MAX_PATH, fd.cFileName);
 	if (DeleteFile(FilePath) == 0)
 	{
-		printf("Error deleting %s.\n", FilePath);
+		fprintf(stderr, "Error deleting %s.\n", FilePath);
 		LogFileWrite("Error deleting %s.\n", FilePath);
 		error = TRUE;
 	}
@@ -173,7 +173,7 @@ For the first file or any subsequent files:
 		StringCchCat(FilePath, MAX_PATH, fd.cFileName);
 		if (DeleteFile(FilePath) == 0)
 		{
-			printf("Error deleting %s.\n", FilePath);
+			fprintf(stderr, "Error deleting %s.\n", FilePath);
 			LogFileWrite("Error deleting %s.\n", FilePath);
 			error = TRUE;
 		}

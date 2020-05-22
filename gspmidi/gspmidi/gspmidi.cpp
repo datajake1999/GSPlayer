@@ -156,6 +156,10 @@ void ResetConfig()
 	else if (g_nSampleRate < MIN_OUTPUT_RATE)
 		g_nSampleRate = MIN_OUTPUT_RATE;
 	gsp_play_mode.rate = g_nSampleRate;
+	if (gsp_play_mode.rate > MAX_OUTPUT_RATE)
+		gsp_play_mode.rate = MAX_OUTPUT_RATE;
+	else if (gsp_play_mode.rate < MIN_OUTPUT_RATE)
+		gsp_play_mode.rate = MIN_OUTPUT_RATE;
 	if (g_nControlRate > g_nSampleRate)
 		g_nControlRate = g_nSampleRate;
 	else if (g_nControlRate < g_nSampleRate/MAX_CONTROL_RATIO)

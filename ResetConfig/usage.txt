@@ -1,0 +1,8 @@
+Usage:
+no arguments - GUI mode
+/u - uninstaller friendly interface
+/s - silent mode
+/f - log errors to file
+/l - log errors to console
+/c - console mode (must be combined with /l)
+/h - show help

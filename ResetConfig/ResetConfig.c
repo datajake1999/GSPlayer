@@ -230,7 +230,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 	CMDResult = strcmp(lpszCommandLine, "/h");
 	if (CMDResult == 0)
 	{
-		MessageBox(NULL, "Usage:\n/u - uninstaller friendly interface\n/s - silent mode\n/f - log errors to file\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+		MessageBox(NULL, "Usage:\nno arguments - GUI mode\n/u - uninstaller friendly interface\n/s - silent mode\n/f - log errors to file\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
 		return 0;
 	}
 

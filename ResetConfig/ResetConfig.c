@@ -129,19 +129,19 @@ BOOL RegDelnode (HKEY hKeyRoot, LPCTSTR lpSubKey)
 
 BOOL DeleteEffectPresets()
 {
-	char FolderPath[MAX_PATH];
-	char FilePath[MAX_PATH];
-	WIN32_FIND_DATAA fd;
+	TCHAR FolderPath[MAX_PATH];
+	TCHAR FilePath[MAX_PATH];
+	WIN32_FIND_DATA fd;
 	HANDLE hFind;
 	BOOL error;
 	//Get the path of the My Documents folder
 	SHGetSpecialFolderPath(NULL, FolderPath, CSIDL_PERSONAL, FALSE);
 	//Append the name of the preset folder
-	StringCchCat(FolderPath, MAX_PATH, "\\preset");
+	StringCchCat(FolderPath, MAX_PATH, TEXT("\\preset"));
 	//Copy the preset folder path
 	StringCchCopy(FilePath, MAX_PATH, FolderPath);
 	//Append the preset search term
-	StringCchCat(FilePath, MAX_PATH, "\\*.gpe");
+	StringCchCat(FilePath, MAX_PATH, TEXT("\\*.gpe"));
 	//Try to find the first file
 	hFind = FindFirstFile(FilePath, &fd);
 	if (hFind == INVALID_HANDLE_VALUE)
@@ -158,7 +158,7 @@ For the first file or any subsequent files:
 4. Delete the file.
 */
 	StringCchCopy(FilePath, MAX_PATH, FolderPath);
-	StringCchCat(FilePath, MAX_PATH, "\\");
+	StringCchCat(FilePath, MAX_PATH, TEXT("\\"));
 	StringCchCat(FilePath, MAX_PATH, fd.cFileName);
 	if (DeleteFile(FilePath) == 0)
 	{
@@ -169,7 +169,7 @@ For the first file or any subsequent files:
 	while (FindNextFile(hFind, &fd))
 	{
 		StringCchCopy(FilePath, MAX_PATH, FolderPath);
-		StringCchCat(FilePath, MAX_PATH, "\\");
+		StringCchCat(FilePath, MAX_PATH, TEXT("\\"));
 		StringCchCat(FilePath, MAX_PATH, fd.cFileName);
 		if (DeleteFile(FilePath) == 0)
 		{
@@ -230,7 +230,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 	CMDResult = strcmp(lpszCommandLine, "/h");
 	if (CMDResult == 0)
 	{
-		MessageBox(NULL, "Usage:\nno arguments - GUI mode\n/u - uninstaller friendly interface\n/s - silent mode\n/f - log errors to file\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n", "Information", MB_ICONINFORMATION | MB_OK);
+		MessageBox(NULL, TEXT("Usage:\nno arguments - GUI mode\n/u - uninstaller friendly interface\n/s - silent mode\n/f - log errors to file\n/l - log errors to console\n/c - console mode (must be combined with /l)\n/h - show help\n"), TEXT("Information"), MB_ICONINFORMATION | MB_OK);
 		return 0;
 	}
 
@@ -287,7 +287,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 
 	if (strstr(lpszCommandLine, "/u"))
 	{
-		if (MessageBox(NULL, "Do you wish to reset the GSPlayer configuration?", "", MB_ICONQUESTION | MB_YESNO) == IDYES)
+		if (MessageBox(NULL, TEXT("Do you wish to reset the GSPlayer configuration?"), TEXT(""), MB_ICONQUESTION | MB_YESNO) == IDYES)
 		{
 			if (strstr(lpszCommandLine, "/f"))
 			{
@@ -303,20 +303,20 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszComm
 		return 0;
 	}
 
-	if (MessageBox(NULL, "Are you sure you want to reset the GSPlayer configuration?", "Reset GSPlayer Configuration", MB_ICONQUESTION | MB_YESNO) == IDYES)
+	if (MessageBox(NULL, TEXT("Are you sure you want to reset the GSPlayer configuration?"), TEXT("Reset GSPlayer Configuration"), MB_ICONQUESTION | MB_YESNO) == IDYES)
 	{
 		if (strstr(lpszCommandLine, "/f"))
 		{
 			LogFileOpen("ResetConfig.log");
 		}
 		if (DeleteEffectPresets() == TRUE)
-		MessageBox(NULL, "1 Or more presets couldn't be deleted.", "Warning", MB_ICONEXCLAMATION | MB_OK);
+		MessageBox(NULL, TEXT("1 Or more presets couldn't be deleted."), TEXT("Warning"), MB_ICONEXCLAMATION | MB_OK);
 		bSuccess = RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\GreenSoftware\\GSPlayer"));
 
 		if(bSuccess)
-		MessageBox(NULL, "Configuration Reset!", "Success", MB_ICONINFORMATION | MB_OK);
+		MessageBox(NULL, TEXT("Configuration Reset!"), TEXT("Success"), MB_ICONINFORMATION | MB_OK);
 		else
-		MessageBox(NULL, "There was a problem resetting the configuration.", "Error", MB_ICONERROR | MB_OK);
+		MessageBox(NULL, TEXT("There was a problem resetting the configuration."), TEXT("Error"), MB_ICONERROR | MB_OK);
 		if (strstr(lpszCommandLine, "/f"))
 		{
 			LogFileClose();

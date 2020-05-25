@@ -134,6 +134,7 @@ BOOL DeleteEffectPresets()
 	WIN32_FIND_DATA fd;
 	HANDLE hFind;
 	BOOL error;
+	error = FALSE;
 	//Get the path of the My Documents folder
 	SHGetSpecialFolderPath(NULL, FolderPath, CSIDL_PERSONAL, FALSE);
 	//Append the name of the preset folder
@@ -148,7 +149,7 @@ BOOL DeleteEffectPresets()
 	{
 		fprintf(stderr, "No preset files found.\n");
 		LogFileWrite("No preset files found.\n");
-		return FALSE;
+		return error;
 	}
 	/*
 For the first file or any subsequent files:

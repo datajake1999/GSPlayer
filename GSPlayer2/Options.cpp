@@ -1196,7 +1196,10 @@ void COptions::AssociateFile(LPCTSTR pszExt, LPCTSTR pszKey, LPCTSTR pszName, BO
 	}
 
 	HKEY hKey, hKeySub;
-	DWORD dwDisposition, dwTemp;
+	DWORD dwDisposition;
+#ifdef _WIN32_WCE_PPC
+	DWORD dwTemp;
+#endif // _WIN32_WCE_PPC
 	if (RegCreateKeyEx(HKEY_CLASSES_ROOT, pszKey, 0, NULL, 
 		REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, &dwDisposition) == ERROR_SUCCESS) {		
 		wsprintf(szTemp, _T("%s"), pszName);

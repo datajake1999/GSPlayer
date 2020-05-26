@@ -1,2 +1,3 @@
+LIBRARY	gspflac
 EXPORTS
 	mapGetDecoder

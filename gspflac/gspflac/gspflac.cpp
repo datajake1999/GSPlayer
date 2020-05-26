@@ -129,7 +129,7 @@ long WINAPI flacSeek(long lTime)
 	FLAC__uint64 target_sample = (FLAC__uint64)g_fileDecoder->TotalSamples * lTime / g_fileDecoder->MapPluginFileInfo.nDuration;
 	g_fileDecoder->seek_absolute(target_sample);
 	g_fileDecoder->InternalBufferSize = 0;
-	return target_sample * 1000 / g_fileDecoder->MapPluginFileInfo.nSampleRate;
+	return (long)(target_sample * 1000 / g_fileDecoder->MapPluginFileInfo.nSampleRate);
 }
 
 BOOL WINAPI flacStart()

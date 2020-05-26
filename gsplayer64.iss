@@ -79,9 +79,11 @@ Name: "{group}\Open Skins Directory"; Filename: "{app}\Skins"; Components: "skin
 Name: "{group}\Reset GSPlayer Configuration"; Filename: "{app}\ResetConfig.exe"; Components: "reset"
 Name: "{group}\{cm:UninstallProgram,GSPlayer}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\GSPlayer"; Filename: "{app}\GSPlayer2e.exe"; Tasks: quicklaunchicon
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
+Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Components]
 Name: "japanese"; Description: "GSPlayer (Japanese)"; Types: "full"

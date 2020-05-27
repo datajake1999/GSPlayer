@@ -10,6 +10,7 @@ LicenseFile=gpl.txt
 OutputBaseFilename=GSPlayerSetup
 Compression=lzma
 SolidCompression=yes
+MinVersion=4.1,5.0
 
 [Languages]
 Name: en; MessagesFile: "compiler:Default.isl"

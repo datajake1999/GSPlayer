@@ -98,3 +98,19 @@ Name: "reset"; Description: "Configuration Reset Tool"; Types: "full"
 Name: "skins"; Description: "Skins"; Types: "full"
 Name: "inst"; Description: "MIDI Instruments"; Types: "full"
 
+[Code]
+function InitializeSetup: Boolean;
+var
+  Version: TWindowsVersion;
+begin
+  GetWindowsVersionEx(Version);
+  if Version.NTPlatform = False then
+  begin
+    SuppressibleMsgBox('This software only runs on Windows NT platforms.',
+      mbCriticalError, MB_OK, MB_OK);
+    Result := False;
+    Exit;
+  end;
+  Result := True;
+end;
+

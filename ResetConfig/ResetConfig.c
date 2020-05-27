@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <strsafe.h>
 #include <shlobj.h>
-#pragma comment (lib, "shell32.lib")
 
 //*************************************************************
 //

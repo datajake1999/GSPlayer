@@ -75,6 +75,11 @@ BEGIN
     LTEXT           "Sample &Rate:",IDC_STATIC,15,33,45,8
     COMBOBOX        IDC_CMB_RATE,65,30,70,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
+    LTEXT           "Control Ra&te:",IDC_STATIC,5,52,44,8
+    EDITTEXT        IDC_EDIT_CTRATE,5,50,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_CTRATE,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,50,50,11,14
     LTEXT           "&Voices:",IDC_STATIC,15,52,45,8
     EDITTEXT        IDC_EDIT_VOICES,65,50,40,12,ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "Spin1",IDC_SPIN_VOICES,"msctls_updown32",
@@ -85,11 +90,6 @@ BEGIN
     CONTROL         "Spin1",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,230,50,11,
                     14
-    LTEXT           "Control Ra&te:",IDC_STATIC,245,52,47,8
-    EDITTEXT        IDC_EDIT_CTRATE,305,50,40,12,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Spin1",IDC_SPIN_CTRATE,"msctls_updown32",
-                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
-                    UDS_ARROWKEYS,350,50,11,14
     CONTROL         "&16bits output",IDC_CHECK_16BITS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,75,105,10
     CONTROL         "&Stereo",IDC_CHECK_STEREO,"Button",BS_AUTOCHECKBOX | 

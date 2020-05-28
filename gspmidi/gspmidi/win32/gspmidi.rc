@@ -96,7 +96,7 @@ BEGIN
                     WS_TABSTOP,130,75,105,10
     CONTROL         "Adjust &panning immediately",IDC_CHECK_PAN,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,90,105,10
-    CONTROL         "&Antialiasing",IDC_CHECK_ANTIALIAS,"Button",
+    CONTROL         "A&ntialiasing",IDC_CHECK_ANTIALIAS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,130,90,105,10
     CONTROL         "&Free instruments afterwards",IDC_CHECK_FREEINST,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,105,115,10

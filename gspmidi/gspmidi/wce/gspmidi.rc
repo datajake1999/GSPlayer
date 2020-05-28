@@ -90,7 +90,7 @@ BEGIN
                     WS_TABSTOP
     LTEXT           "Control Rate:",-1,8,37,48,9
     EDITTEXT        IDC_EDIT_CTRATE,57,35,40,13,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Spin3",IDC_SPIN_CTRATE,"msctls_updown32",
+    CONTROL         "Spin1",IDC_SPIN_CTRATE,"msctls_updown32",
                     UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
                     UDS_ARROWKEYS,100,33,11,14
     LTEXT           "Voices:",-1,8,52,48,9
@@ -100,7 +100,7 @@ BEGIN
                     UDS_ARROWKEYS,100,48,11,14
     LTEXT           "Amplification:",-1,8,67,48,9
     EDITTEXT        IDC_EDIT_AMP,57,65,40,13,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Spin2",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
+    CONTROL         "Spin1",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,100,63,11,
                     14
     CONTROL         "16bits",IDC_CHECK_16BITS,"Button",BS_AUTOCHECKBOX | 
@@ -132,7 +132,7 @@ BEGIN
                     WS_TABSTOP
     LTEXT           "Control Ra&te:",-1,5,37,48,9
     EDITTEXT        IDC_EDIT_CTRATE,3,34,40,13,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Spin3",IDC_SPIN_CTRATE,"msctls_updown32",
+    CONTROL         "Spin1",IDC_SPIN_CTRATE,"msctls_updown32",
                     UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
                     UDS_ARROWKEYS,46,33,11,14
     LTEXT           "&Voices:",-1,10,37,48,9
@@ -142,7 +142,7 @@ BEGIN
                     UDS_ARROWKEYS,102,33,11,14
     LTEXT           "A&mplification:",-1,122,37,48,9
     EDITTEXT        IDC_EDIT_AMP,171,34,40,13,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Spin2",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
+    CONTROL         "Spin1",IDC_SPIN_AMP,"msctls_updown32",UDS_SETBUDDYINT | 
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,214,33,11,
                     14
     CONTROL         "&16bits",IDC_CHECK_16BITS,"Button",BS_AUTOCHECKBOX | 

@@ -155,7 +155,7 @@ BEGIN
     CONTROL         "Interpolated Mixing",IDC_INTERPOLATED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,109,78,10
     CONTROL         "Calculate Length",IDC_CALCLEN,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,79,48,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,79,41,10
     PUSHBUTTON      "Cancel",IDCANCEL,95,2,44,11
     PUSHBUTTON      "About...",IDC_ABOUT,125,2,44,11
 END
@@ -193,7 +193,7 @@ BEGIN
     CONTROL         "&Interpolated Mixing",IDC_INTERPOLATED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,109,78,10
     CONTROL         "&Calculate Length",IDC_CALCLEN,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,79,48,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,79,41,10
     PUSHBUTTON      "OK",IDOK,65,2,44,11
     PUSHBUTTON      "Cancel",IDCANCEL,95,2,44,11
     PUSHBUTTON      "&About...",IDC_ABOUT,125,2,44,11

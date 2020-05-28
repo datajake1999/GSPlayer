@@ -114,7 +114,7 @@ BEGIN
     CONTROL         "Free instruments afterwards",IDC_CHECK_FREEINST,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,5,118,122,10
     CONTROL         "Fast Envelopes",IDC_CHECK_FASTENV,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,5,136,144,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,131,56,10
     PUSHBUTTON      "About...",IDC_ABOUT,85,130,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,96,2,39,11
 END
@@ -156,7 +156,7 @@ BEGIN
     CONTROL         "&Free instruments afterwards",IDC_CHECK_FREEINST,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,76,68,122,10
     CONTROL         "Fast &Envelopes",IDC_CHECK_FASTENV,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,152,68,244,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,140,68,56,10
     PUSHBUTTON      "&About...",IDC_ABOUT,77,82,50,14
     PUSHBUTTON      "OK",IDOK,137,82,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,197,82,50,14
